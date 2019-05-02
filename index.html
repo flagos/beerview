@@ -24,6 +24,11 @@
   </head>
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
+
+    <!-- brauhausjs -->
+    <script type="text/javascript" src="static/script/brauhaus.min.js"></script>
+    <script type="text/javascript" src="static/script/brauhaus-beerxml.min.js"></script>
+
     <!-- App js -->
     <script src="app.js"></script>
 
@@ -58,7 +63,11 @@
 	<div id="recipes-list">
           <input id="search" placeholder="Search">
 	  <i id="search-icon" class="material-icons">search</i>
-          <div class="search-results"></div>
+          <div id="search-results">
+	    <ul class="collection" id="collection-search-results">
+
+	    </ul>
+	  </div>
 	</div>
       </div>
       <div class="col s9 container recipe">
