@@ -62,7 +62,7 @@ app.on('activate', function () {
 
 
 function send_recipes () {
-    var recipePath = "/home/flagos/project/beer-recipes/recipes";
+    var recipePath = `/home/${process.env.USER}/project/beer-recipes/recipes`;
 
     var recipesContent = [];
     fs.readdir(recipePath, function (err, files) {
