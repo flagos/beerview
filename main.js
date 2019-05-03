@@ -15,17 +15,20 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
+      width: 1024,
+      height: 800,
+      'minWidth': 800,
+      'minHeight': 600,
+      webPreferences: {
       nodeIntegration: true
     }
-  })
+  });
+    mainWindow.setMenuBarVisibility(false);
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+    mainWindow.loadFile('index.html');
 
-  mainWindow.webContents.on('did-finish-load', send_recipes)
+    mainWindow.webContents.on('did-finish-load', send_recipes);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
