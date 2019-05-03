@@ -34,8 +34,8 @@ require('electron').ipcRenderer.on('recipes-list', (event, message) => {
 `);
     });
 
+    // construct search text
     recipes.forEach(function(recipe){
-	// construct search text
 	var txtValues;
 	recipe = recipe[0];
 	txtValues = [recipe.name, recipe.style.name];
@@ -58,10 +58,10 @@ require('electron').ipcRenderer.on('recipes-list', (event, message) => {
 
 function search_recipes() {
 
-    var input, filter, ul, li, a, i, txtValue;
+    var input, filters, filter, ul, li, a, i, txtValue;
 
     input = document.getElementById('search');
-    filter = input.value.toUpperCase();
+    filters = input.value.toUpperCase().split(' ');
 
     ul = document.getElementById("collection-search-results");
     li = ul.getElementsByTagName('li');
@@ -69,7 +69,11 @@ function search_recipes() {
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < recipes.length; i++) {
 	txtValue = search_txts[i];
-	if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	var filter_index_min = 0;
+	filters.forEach(function(filter){
+	    filter_index_min = Math.min(filter_index_min, txtValue.toUpperCase().indexOf(filter));
+	});
+	if (filter_index_min > -1) {
 	    li[i].style.display = "";
 	} else {
 	    li[i].style.display = "none";
