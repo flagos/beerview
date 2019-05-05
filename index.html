@@ -11,6 +11,10 @@
 
       var Brauhaus = require('brauhaus');
       require('brauhaus-beerxml');
+
+      const pug = require('pug');
+      const compiledTemplateRecipeView = pug.compileFile('template/recipe_view.pug');
+
     </script>
 
     <!--Import Google Icon Font-->
@@ -34,8 +38,7 @@
     <nav>
       <div class="nav-wrapper">
 	<a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-	<a href="#!" class="breadcrumb">Recipes</a>
-        <!-- <a href="#!" class="breadcrumb">Second</a> -->
+	<a class="breadcrumb">Recipes</a>
       </div>
     </nav>
     <ul id="slide-out" class="sidenav">
@@ -65,8 +68,7 @@
 	  </div>
 	</div>
       </div>
-      <div class="col s8 container recipe">
-	<h2>SMASH Amarillo</h2>
+      <div class="col s8 container recipe" id="recipe_view">
       </div>
 
     </div>

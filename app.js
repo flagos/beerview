@@ -21,10 +21,11 @@ require('electron').ipcRenderer.on('recipes-list', (event, message) => {
     console.log(recipes);
 
     // construct list
+    var idx = 0;
     recipes.forEach(function(recipe){
 	$("#collection-search-results").append(
 	    `
-<li class="collection-item avatar">
+<li class="collection-item avatar" onClick='display_recipe(${idx})'>
     <i class="material-icons circle" style="background-color:${Brauhaus.srmToCss(recipe[0].color)}"></i>
     <span class="title">${recipe[0].name}</span>
     <p>${recipe[0].style.name}<br>
@@ -32,6 +33,7 @@ require('electron').ipcRenderer.on('recipes-list', (event, message) => {
     </p>
 </li>
 `);
+	idx+=1;
     });
 
     // construct search text
@@ -79,4 +81,12 @@ function search_recipes() {
 	    li[i].style.display = "none";
 	}
     }
+}
+
+
+function display_recipe(recipe_idx) {
+    // Modifying an HTML element: adding an <li>
+    document.getElementById("recipe_view").innerHTML = compiledTemplateRecipeView({
+	recipe_name: recipes[recipe_idx][0].name
+    });
 }
