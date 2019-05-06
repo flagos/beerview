@@ -85,8 +85,17 @@ function search_recipes() {
 
 
 function display_recipe(recipe_idx) {
-    // Modifying an HTML element: adding an <li>
+
+    var recipe = recipes[recipe_idx][0];
     document.getElementById("recipe_view").innerHTML = compiledTemplateRecipeView({
-	recipe_name: recipes[recipe_idx][0].name
+	recipe_name: recipe.name
     });
+
+    document.getElementById("nav-wrapper-top").style.backgroundColor = Brauhaus.srmToCss(recipe.color);
+
+    document.getElementById("nav-wrapper-top").innerHTML = `
+	    <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+	    <a class="breadcrumb">Recipes</a>
+	    <a class="breadcrumb">${recipe.name}</a>
+`;
 }
