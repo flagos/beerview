@@ -88,7 +88,7 @@ function display_recipe(recipe_idx) {
 
     var recipe = recipes[recipe_idx][0];
     document.getElementById("recipe_view").innerHTML = compiledTemplateRecipeView({
-	recipe_name: recipe.name
+	recipe: recipe
     });
 
     document.getElementById("nav-wrapper-top").style.backgroundColor = Brauhaus.srmToCss(recipe.color);
