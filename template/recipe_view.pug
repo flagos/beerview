@@ -1,11 +1,22 @@
-h2 #{recipe.name}
+h3 #{recipe.name}
 
-div(class='col s6')
-    img(src="https://img.icons8.com/material/24/000000/human-head.png" style='float:left; margin-right:10px')
-    div Designed by #{recipe.author}
-div(class='col s6')
-    img(src="https://img.icons8.com/material/24/000000/human-head.png" style='float:left; margin-right:10px')
-    div #{recipe.style.name}
-div(class='col s6')
-    img(src='https://img.icons8.com/material/24/000000/wooden-beer-keg' style='float:left; margin-right:10px')
-    div Batchsize #{recipe.batchSize} L
+div()
+  div(class='col s4')
+    div Designed by: #{recipe.author}
+  div(class='col s4')
+    div Style: #{recipe.style.name}
+  div(class='col s4')
+    div Batchsize: #{recipe.batchSize} L
+
+
+div(class="divider")
+div(class="section")
+  h5 Characteristics
+
+  div
+    div EBC: #{Brauhaus.srmToEbc(recipe.color).toFixed(0)} #{Brauhaus.srmToName(recipe.color)}
+    div Alcohol: #{recipe.abv.toFixed(1)} %
+    div Bitterness: #{recipe.ibu.toFixed(0)} IBU
+    div OG: #{recipe.og.toFixed(3)}
+    div FG: #{recipe.fg.toFixed(3)}
+    div BU/GU: #{recipe.buToGu.toFixed(3)}
