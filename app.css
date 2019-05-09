@@ -6,3 +6,24 @@
 #nav-wrapper-top {
     transition: background-color 2000ms;
 }
+
+
+
+/* recipe view */
+#recipe_view {
+    font-size: 15px;
+}
+#recipe_view .section {
+    margin-top: 40px;
+}
+
+.characteristics {
+    margin-left: 40px;
+    line-height: 30px;
+}
+
+.characteristics .c-name {
+}
+
+.characteristics .c-value {
+}

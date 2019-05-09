@@ -9,14 +9,33 @@ div()
     div Batchsize: #{recipe.batchSize} L
 
 
-div(class="divider")
 div(class="section")
   h5 Characteristics
 
-  div
-    div EBC: #{Brauhaus.srmToEbc(recipe.color).toFixed(0)} #{Brauhaus.srmToName(recipe.color)}
-    div Alcohol: #{recipe.abv.toFixed(1)} %
-    div Bitterness: #{recipe.ibu.toFixed(0)} IBU
-    div OG: #{recipe.og.toFixed(3)}
-    div FG: #{recipe.fg.toFixed(3)}
-    div BU/GU: #{recipe.buToGu.toFixed(3)}
+
+
+  .characteristics
+    .characteristic-line
+      div(class="c-name col s4") EBC
+      div(class="c-value col s4") #{Brauhaus.srmToEbc(recipe.color).toFixed(0)} (#{Brauhaus.srmToName(recipe.color)})
+      div(class="c-style col s4") style bar
+    .characteristic-line
+      div(class="c-name col s4") Alcohol
+      div(class="c-value col s4") #{recipe.abv.toFixed(1)} %
+      div(class="c-style col s4") style bar
+    .characteristic-line
+      div(class="c-name col s4") Bitterness
+      div(class="c-value col s4") #{recipe.ibu.toFixed(0)} IBU
+      div(class="c-style col s4") style bar
+    .characteristic-line
+      div(class="c-name col s4") OG
+      div(class="c-value col s4") #{recipe.og.toFixed(3)}
+      div(class="c-style col s4") style bar
+    .characteristic-line
+      div(class="c-name col s4") FG
+      div(class="c-value col s4") #{recipe.fg.toFixed(3)}
+      div(class="c-style col s4") style bar
+    .characteristic-line
+      div(class="c-name col s4") BU/GU
+      div(class="c-value col s4") #{recipe.buToGu.toFixed(3)}
+      div(class="c-style col s4") style bar
