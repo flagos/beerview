@@ -28,7 +28,7 @@ require('electron').ipcRenderer.on('recipes-list', (event, message) => {
 <li class="collection-item avatar" onClick='display_recipe(${idx})'>
     <i class="material-icons circle" style="background-color:${Brauhaus.srmToCss(recipe[0].color)}"></i>
     <span class="title">${recipe[0].name}</span>
-    <p>${recipe[0].style.name}<br>
+    <p>${recipe[0].style.category} ${recipe[0].style.category!='' ? '-' : ''}  ${recipe[0].style.name}<br>
      ${recipe[0].abv.toFixed(1)}% - ${recipe[0].ibu.toFixed(0)} IBU
     </p>
 </li>

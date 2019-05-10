@@ -4,7 +4,7 @@ div()
   div(class='col s4')
     div Designed by: #{recipe.author}
   div(class='col s4')
-    div Style: #{recipe.style.name}
+    div Style: #{recipe.style.category} #{recipe.style.category!='' ? '-' : ''} #{recipe.style.name}
   div(class='col s4')
     div Batchsize: #{recipe.batchSize} L
 
