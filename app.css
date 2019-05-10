@@ -27,3 +27,29 @@
 
 .characteristics .c-value {
 }
+
+
+/* style-bar */
+.style-bar {
+    height: 5px;
+    position: absolute;
+}
+
+.style-bar-background {
+    background-color: lightgray;
+    width: 150px;
+}
+
+
+.style-bar-style {
+    background-color: orange;
+    width: 20px;
+    margin-left: 40px;
+}
+
+
+.style-bar-marker {
+    background-color: red;
+    width: 2px;
+    margin-left: 50px;
+}
