@@ -21,7 +21,8 @@ function createWindow () {
       'minHeight': 600,
       webPreferences: {
       nodeIntegration: true
-    }
+      },
+      icon: path.join(__dirname, 'static/images/beer-bottle-glass-64-64.png')
   });
     mainWindow.setMenuBarVisibility(false);
 
