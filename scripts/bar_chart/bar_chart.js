@@ -8,7 +8,7 @@ function bar_char_compute_left(type, value) {
         'ibu': [0, 200],
         'og': [1, 1.3],
         'fg': [1, 1.1],
-        'buToGu': [0, 5],
+        'buToGu': [0, 1.4],
     };
 
     if (! type in ranges) {

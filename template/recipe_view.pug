@@ -62,11 +62,11 @@ div(class="section")
         include bar.pug
 
 
-    // .characteristic-line
-    //   div(class="c-name col s4") BU/GU
-    //   div(class="c-value col s4") #{recipe.buToGu.toFixed(3)}
-    //   div(class="c-style col s4 style-bar-div")
-    //     - var style_type = "buToGu"
-    //     - var style_arr = style ? style.buToGu : ""
-    //     - var value_style = recipe.buToGu
-    //     include bar.pug
+    .characteristic-line
+      div(class="c-name col s4") BU/GU
+      div(class="c-value col s4") #{recipe.buToGu.toFixed(3)}
+      div(class="c-style col s4 style-bar-div")
+        - var style_type = "buToGu"
+        - var style_arr = ""
+        - var value_style = recipe.buToGu
+        include bar.pug

@@ -99,6 +99,7 @@ function display_recipe(recipe_idx) {
 
     };
 
+
     document.getElementById("recipe_view").innerHTML = compiledTemplateRecipeView({
 	    recipe: recipe,
         style: style,
