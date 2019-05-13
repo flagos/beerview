@@ -1,5 +1,3 @@
-
-
 $(document).ready(function(){
     $('.sidenav').sidenav();
 });
@@ -113,24 +111,4 @@ function display_recipe(recipe_idx) {
 	    <a class="breadcrumb">Recipes</a>
 	    <a class="breadcrumb">${recipe.name}</a>
 `;
-}
-
-function bar_char_compute_left(type, value) {
-
-    var width = 150;
-    var ranges = {
-        'abv': [0, 20],
-    };
-
-    if (value < ranges[0]) {
-        return 0;
-    }
-    if (value > ranges[1]) {
-        return width;
-    }
-    return ((value - ranges[0])/width);
-}
-
-exports._test = {
-    bar_char_compute_left: bar_char_compute_left
 }
