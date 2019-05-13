@@ -43,13 +43,10 @@
 
 .style-bar-style {
     background-color: orange;
-    width: 20px;
-    margin-left: 40px;
 }
 
 
 .style-bar-marker {
     background-color: red;
     width: 2px;
-    margin-left: 50px;
 }

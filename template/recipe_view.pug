@@ -25,8 +25,9 @@ div(class="section")
       div(class="c-style col s4")
         if style
           div(class='style-bar style-bar-background')
-          div(class='style-bar style-bar-style')
-          div(class='style-bar style-bar-marker')
+          div(class='style-bar style-bar-style', style='width:' + (bar_chart.bar_char_compute_left("abv", style.abv[1]) - bar_chart.bar_char_compute_left("abv",  style.abv[0])).toString() +'px;' + 'margin-left:' + (bar_chart.bar_char_compute_left("abv",  style.abv[0])).toString() +'px;')
+
+          div(class='style-bar style-bar-marker', style='margin-left:' + (bar_chart.bar_char_compute_left("abv", recipe.abv)).toString() +'px;')
 
           div #{style.abv[0]} - #{style.abv[1]}
         else
