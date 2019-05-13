@@ -22,16 +22,14 @@ div(class="section")
     .characteristic-line
       div(class="c-name col s4") Alcohol
       div(class="c-value col s4") #{recipe.abv.toFixed(1)} %
-      div(class="c-style col s4")
-        if style
+      div(class="c-style col s4 style-bar-div")
+        div(title=style ? style.abv[0] + " - " + style.abv[1] : "")
           div(class='style-bar style-bar-background')
-          div(class='style-bar style-bar-style', style='width:' + (bar_chart.bar_char_compute_left("abv", style.abv[1]) - bar_chart.bar_char_compute_left("abv",  style.abv[0])).toString() +'px;' + 'margin-left:' + (bar_chart.bar_char_compute_left("abv",  style.abv[0])).toString() +'px;')
+          if style
+            div(class='style-bar style-bar-style', style='width:' + (bar_chart.bar_char_compute_left("abv", style.abv[1]) - bar_chart.bar_char_compute_left("abv",  style.abv[0])).toString() +'px;' + 'margin-left:' + (bar_chart.bar_char_compute_left("abv",  style.abv[0])).toString() +'px;')
 
           div(class='style-bar style-bar-marker', style='margin-left:' + (bar_chart.bar_char_compute_left("abv", recipe.abv)).toString() +'px;')
 
-          div #{style.abv[0]} - #{style.abv[1]}
-        else
-          div no style !
     .characteristic-line
       div(class="c-name col s4") Bitterness
       div(class="c-value col s4") #{recipe.ibu.toFixed(0)} IBU

@@ -35,6 +35,11 @@
     position: absolute;
 }
 
+.style-bar-div {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 .style-bar-background {
     background-color: lightgray;
     width: 150px;
