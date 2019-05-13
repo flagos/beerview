@@ -6,13 +6,17 @@ function bar_char_compute_left(type, value) {
         'abv': [0, 20],
     };
 
-    if (value < ranges[0]) {
+    if (! type in ranges) {
+        throw "type not supported";
+    }
+
+    if (value <= ranges[type][0]) {
         return 0;
     }
-    if (value > ranges[1]) {
+    if (value >= ranges[type][1]) {
         return width;
     }
-    return ((value - ranges[0])/width);
+    return Math.round(((value - ranges[type][0])/(ranges[type][1] - ranges[type][0])) * width);
 }
 
 module.exports = {
