@@ -18,31 +18,55 @@ div(class="section")
     .characteristic-line
       div(class="c-name col s4") EBC
       div(class="c-value col s4") #{Brauhaus.srmToEbc(recipe.color).toFixed(0)} (#{Brauhaus.srmToName(recipe.color)})
-      div(class="c-style col s4") style bar
+      div(class="c-style col s4 style-bar-div")
+        - var style_type = "srm"
+        - var style_arr = style ?  [Brauhaus.srmToEbc(style.srm[0]), Brauhaus.srmToEbc(style.srm[1])] : ""
+        - var value_style = recipe.color
+        include bar.pug
+
     .characteristic-line
       div(class="c-name col s4") Alcohol
       div(class="c-value col s4") #{recipe.abv.toFixed(1)} %
       div(class="c-style col s4 style-bar-div")
-        div(title=style ? style.abv[0] + " - " + style.abv[1] : "")
-          div(class='style-bar style-bar-background')
-          if style
-            div(class='style-bar style-bar-style', style='width:' + (bar_chart.bar_char_compute_left("abv", style.abv[1]) - bar_chart.bar_char_compute_left("abv",  style.abv[0])).toString() +'px;' + 'margin-left:' + (bar_chart.bar_char_compute_left("abv",  style.abv[0])).toString() +'px;')
-
-          div(class='style-bar style-bar-marker', style='margin-left:' + (bar_chart.bar_char_compute_left("abv", recipe.abv)).toString() +'px;')
+        - var style_type = "abv"
+        - var style_arr = style ? style.abv : ""
+        - var value_style = recipe.abv
+        include bar.pug
 
     .characteristic-line
       div(class="c-name col s4") Bitterness
       div(class="c-value col s4") #{recipe.ibu.toFixed(0)} IBU
-      div(class="c-style col s4") style bar
+      div(class="c-style col s4 style-bar-div")
+        - var style_type = "ibu"
+        - var style_arr = style ? style.ibu : ""
+        - var value_style = recipe.ibu
+        include bar.pug
+
     .characteristic-line
       div(class="c-name col s4") OG
       div(class="c-value col s4") #{recipe.og.toFixed(3)}
-      div(class="c-style col s4") style bar
+      div(class="c-style col s4 style-bar-div")
+        - var style_type = "og"
+        - var style_arr =  style ? style.gu : ""
+        - var value_style = recipe.og
+        include bar.pug
+
+
     .characteristic-line
       div(class="c-name col s4") FG
       div(class="c-value col s4") #{recipe.fg.toFixed(3)}
-      div(class="c-style col s4") style bar
-    .characteristic-line
-      div(class="c-name col s4") BU/GU
-      div(class="c-value col s4") #{recipe.buToGu.toFixed(3)}
-      div(class="c-style col s4") style bar
+      div(class="c-style col s4 style-bar-div")
+        - var style_type = "fg"
+        - var style_arr = style ? style.fg : ""
+        - var value_style = recipe.fg
+        include bar.pug
+
+
+    // .characteristic-line
+    //   div(class="c-name col s4") BU/GU
+    //   div(class="c-value col s4") #{recipe.buToGu.toFixed(3)}
+    //   div(class="c-style col s4 style-bar-div")
+    //     - var style_type = "buToGu"
+    //     - var style_arr = style ? style.buToGu : ""
+    //     - var value_style = recipe.buToGu
+    //     include bar.pug
