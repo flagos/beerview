@@ -55,3 +55,15 @@
     background-color: red;
     width: 2px;
 }
+
+
+/* fermentable list */
+.fermentable-icon i {
+    width: 20px;
+    height: 20px;
+}
+
+.fermentable-quantity {
+    position: absolute;
+    right: 20px;
+}

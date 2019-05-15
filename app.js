@@ -101,7 +101,7 @@ function display_recipe(recipe_idx) {
 
 
     document.getElementById("recipe_view").innerHTML = compiledTemplateRecipeView({
-	    recipe: recipe,
+	recipe: recipe,
         style: style,
     });
 
@@ -112,4 +112,5 @@ function display_recipe(recipe_idx) {
 	    <a class="breadcrumb">Recipes</a>
 	    <a class="breadcrumb">${recipe.name}</a>
 `;
+    $('.collapsible').collapsible();
 }

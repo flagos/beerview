@@ -70,3 +70,20 @@ div(class="section")
         - var style_arr = ""
         - var value_style = recipe.buToGu
         include bar.pug
+
+div(class="section")
+  h5 Ingredients
+
+    h6 Fermentables
+
+      ul.collapsible
+        each fermentable in recipe.fermentables
+          li
+            .collapsible-header
+              span.fermentable-icon
+                i(class="material-icons circle" style="background-color:" + fermentable.colorCss())
+              span.fermentable-name= fermentable.name
+              span.fermentable-quantity= fermentable.weight + ' kg'
+            .collapsible-body
+              .fermentable-color= Brauhaus.srmToEbc(fermentable.color).toFixed(0) + ' EBC'
+              .fermentable-yield yield #{fermentable.yield} %
