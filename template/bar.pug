@@ -1,0 +1,6 @@
+div(title=style ? style_arr[0] + " - " + style_arr[1] : "")
+  div(class='style-bar style-bar-background')
+  if style
+    div(class='style-bar style-bar-style', style='width:' + (bar_chart.bar_char_compute_left(style_type, style_arr[1]) - bar_chart.bar_char_compute_left(style_type, style_arr[0])).toString() +'px;' + 'margin-left:' + (bar_chart.bar_char_compute_left(style_type, style_arr[0])).toString() +'px;')
+
+  div(class='style-bar style-bar-marker', style='margin-left:' + (bar_chart.bar_char_compute_left(style_type, value_style)).toString() +'px;')
