@@ -30,6 +30,10 @@
 }
 
 
+#recipe_view h6 {
+    margin-top: 20px;
+}
+
 /* style-bar */
 .style-bar {
     height: 5px;
@@ -67,4 +71,9 @@
 .fermentable-quantity {
     position: absolute;
     right: 20px;
+}
+
+
+.ingredients-table {
+    margin-top: 15px;
 }
