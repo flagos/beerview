@@ -1,6 +1,6 @@
 h3 #{recipe.name}
 
-div()
+.section
   div(class='col s4')
     div Designed by: #{recipe.author}
   div(class='col s4')
@@ -9,7 +9,7 @@ div()
     div Batchsize: #{recipe.batchSize} L
 
 
-div(class="section")
+.section
   h5 Characteristics
 
 
@@ -71,7 +71,7 @@ div(class="section")
         - var value_style = recipe.buToGu
         include bar.pug
 
-div(class="section")
+.section
   h5 Ingredients
 
     h6 Fermentables
