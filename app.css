@@ -82,3 +82,15 @@
     margin-bottom: 5px;
     margin-top: -10px;
 }
+
+
+/* hop list */
+.hop-quantity {
+    position: absolute;
+    right: 20px;
+}
+
+.hop-use {
+    margin-left: 10px;
+    color: gray;
+}

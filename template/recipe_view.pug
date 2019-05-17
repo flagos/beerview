@@ -89,3 +89,19 @@ h3 #{recipe.name}
               .collapsible-body-content
                 div(class='fermentable-color col s6')= Brauhaus.srmToEbc(fermentable.color).toFixed(0) + ' EBC'
                 div(class='fermentable-yield col s6') yield #{fermentable.yield} %
+
+    h6 Hops
+
+    .ingredients-table
+      ul.collapsible
+        each hop in recipe.spices
+          if hop.aa != 0
+            li
+              .collapsible-header
+                span.hop-name= hop.name
+                span.hop-use #{hop.use}: #{hop.time} #{hop.use!="Dry Hop" ? 'm':'days'}
+                span.hop-quantity #{hop.weight*1000} g
+              .collapsible-body
+                .collapsible-body-content
+                  div(class='hop-aa col s6')= hop.aa + ' AA'
+                  div(class='hop- col s6')= hop.form

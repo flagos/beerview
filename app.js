@@ -11,6 +11,7 @@ Brauhaus.getStyleCategories().forEach(function(Sc){
 });
 
 
+
 require('electron').ipcRenderer.on('recipes-list', (event, message) => {
     console.log(message);
 
