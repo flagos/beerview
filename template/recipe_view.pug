@@ -124,3 +124,18 @@ h3 #{recipe.name}
                   span.misc-quantity #{misc.weight*1000} g
                 .collapsible-body
                   .collapsible-body-content
+
+
+    h6 Yeast
+
+    .ingredients-table
+      ul.collapsible
+        each yeast in recipe.yeast
+          li
+            .collapsible-header
+              span.yeast-name= yeast.name
+              span.yeast-attenuation #{yeast.attenuation} %
+            .collapsible-body
+              .collapsible-body-content
+                div(class='yeast-type col s6')= yeast.type
+                div(class='yeast-form col s6')= yeast.form
