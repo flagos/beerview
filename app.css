@@ -94,3 +94,15 @@
     margin-left: 10px;
     color: gray;
 }
+
+
+/* misc list */
+.misc-quantity {
+    position: absolute;
+    right: 20px;
+}
+
+.misc-use {
+    margin-left: 10px;
+    color: gray;
+}

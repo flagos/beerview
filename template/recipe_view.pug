@@ -92,6 +92,7 @@ h3 #{recipe.name}
 
     h6 Hops
 
+- var no_misc = true;
     .ingredients-table
       ul.collapsible
         each hop in recipe.spices
@@ -104,4 +105,22 @@ h3 #{recipe.name}
               .collapsible-body
                 .collapsible-body-content
                   div(class='hop-aa col s6')= hop.aa + ' AA'
-                  div(class='hop- col s6')= hop.form
+                  div(class='hop-form col s6')= hop.form
+          else
+            - no_misc = false;
+
+    h6 Misc
+
+
+    .ingredients-table
+      if no_misc == false
+        ul.collapsible
+          each misc in recipe.spices
+            if misc.aa == 0
+              li
+                .collapsible-header
+                  span.misc-name= misc.name
+                  span.misc-use= misc.use
+                  span.misc-quantity #{misc.weight*1000} g
+                .collapsible-body
+                  .collapsible-body-content
