@@ -77,3 +77,8 @@
 .ingredients-table {
     margin-top: 15px;
 }
+
+.ingredients-table .collapsible-body-content {
+    margin-bottom: 5px;
+    margin-top: -10px;
+}

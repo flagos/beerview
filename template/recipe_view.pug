@@ -86,5 +86,6 @@ h3 #{recipe.name}
               span.fermentable-name= fermentable.name
               span.fermentable-quantity= fermentable.weight + ' kg'
             .collapsible-body
-              .fermentable-color= Brauhaus.srmToEbc(fermentable.color).toFixed(0) + ' EBC'
-              .fermentable-yield yield #{fermentable.yield} %
+              .collapsible-body-content
+                div(class='fermentable-color col s6')= Brauhaus.srmToEbc(fermentable.color).toFixed(0) + ' EBC'
+                div(class='fermentable-yield col s6') yield #{fermentable.yield} %
