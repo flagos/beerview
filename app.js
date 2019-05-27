@@ -106,8 +106,8 @@ function display_recipe(recipe_idx) {
 
     document.getElementById("recipe_view").innerHTML = compiledTemplateRecipeView({
 	    recipe: recipe,
-        style: style.style,
-        style_category: style.style_category,
+        style: style==null ? "" : style.style,
+        style_category: style==null ? "" : style.style_category,
     });
 
     document.getElementById("nav-wrapper-top").style.backgroundColor = Brauhaus.srmToCss(recipe.color);
