@@ -4,7 +4,7 @@ h3 #{recipe.name}
   div(class='col s4')
     div Designed by: #{recipe.author}
   div(class='col s4')
-    div Style: #{recipe.style.category} #{recipe.style.category!='' ? '-' : ''} #{recipe.style.name}
+    div Style: #{style_category.name} #{style_category!='' ? '-' : ''} #{style.name}
   div(class='col s4')
     div Batchsize: #{recipe.batchSize} L
 
@@ -20,7 +20,7 @@ h3 #{recipe.name}
       div(class="c-value col s4") #{Brauhaus.srmToEbc(recipe.color).toFixed(0)} (#{Brauhaus.srmToName(recipe.color)})
       div(class="c-style col s4 style-bar-div")
         - var style_type = "srm"
-        - var style_arr = style ?  [Brauhaus.srmToEbc(style.srm[0]), Brauhaus.srmToEbc(style.srm[1])] : ""
+        - var style_arr = style ?  [Brauhaus.srmToEbc(style.stats.srm.low), Brauhaus.srmToEbc(style.stats.srm.high)] : ""
         - var value_style = recipe.color
         include bar.pug
 
@@ -29,7 +29,7 @@ h3 #{recipe.name}
       div(class="c-value col s4") #{recipe.abv.toFixed(1)} %
       div(class="c-style col s4 style-bar-div")
         - var style_type = "abv"
-        - var style_arr = style ? style.abv : ""
+        - var style_arr = style ? [style.stats.abv.low, style.stats.abv.high] : ""
         - var value_style = recipe.abv
         include bar.pug
 
@@ -38,7 +38,7 @@ h3 #{recipe.name}
       div(class="c-value col s4") #{recipe.ibu.toFixed(0)} IBU
       div(class="c-style col s4 style-bar-div")
         - var style_type = "ibu"
-        - var style_arr = style ? style.ibu : ""
+        - var style_arr = style ? [style.stats.ibu.low, style.stats.ibu.high] : ""
         - var value_style = recipe.ibu
         include bar.pug
 
@@ -47,7 +47,7 @@ h3 #{recipe.name}
       div(class="c-value col s4") #{recipe.og.toFixed(3)}
       div(class="c-style col s4 style-bar-div")
         - var style_type = "og"
-        - var style_arr =  style ? style.gu : ""
+        - var style_arr =  style ? [style.stats.og.low, style.stats.og.high] : ""
         - var value_style = recipe.og
         include bar.pug
 
@@ -57,7 +57,7 @@ h3 #{recipe.name}
       div(class="c-value col s4") #{recipe.fg.toFixed(3)}
       div(class="c-style col s4 style-bar-div")
         - var style_type = "fg"
-        - var style_arr = style ? style.fg : ""
+        - var style_arr = style ? [style.stats.fg.low, style.stats.fg.high] : ""
         - var value_style = recipe.fg
         include bar.pug
 

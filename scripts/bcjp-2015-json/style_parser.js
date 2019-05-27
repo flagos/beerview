@@ -33,7 +33,10 @@ function search_style(category, style, style_id) {
         throw new Error("style not found");
     }
 
-    return matched_style;
+    return {
+        "style": matched_style,
+        "style_category": style_category,
+    };
 }
 
 
