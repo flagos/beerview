@@ -10,10 +10,12 @@ Brauhaus.getStyleCategories().forEach(function(Sc){
     styles[Sc] = Brauhaus.getStyles(Sc);
 });
 
-
+var styles_json = {};
+$.getJSON("scripts/bcjp-2015-json/styleguide-2015.min.json", function(json) {
+    style_categories = json['styleguide']["class"][0]["category"];
+});
 
 require('electron').ipcRenderer.on('recipes-list', (event, message) => {
-    console.log(message);
 
     recipes = [];
 
@@ -94,7 +96,8 @@ function display_recipe(recipe_idx) {
     var recipe = recipes[recipe_idx][0];
     var style = null;
     try {
-        style = Brauhaus.getStyle(recipe.style.category, recipe.style.name);
+        // style = Brauhaus.getStyle(recipe.style.category, recipe.style.name);
+        style = style_parser.search_style(recipe.style.category, recipe.style.name);
         console.log(style);
     } catch(e) {
 

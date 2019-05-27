@@ -12,7 +12,7 @@ function bar_char_compute_left(type, value) {
     };
 
     if (! type in ranges) {
-        throw "type not supported";
+        throw new Error("type not supported");
     }
 
     if (value <= ranges[type][0]) {
