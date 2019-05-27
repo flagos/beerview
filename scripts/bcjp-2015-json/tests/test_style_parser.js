@@ -65,7 +65,12 @@ style_categories = [
                         "high": "4.2"
                     }
                 }
+            },
+            {
+                "id": "1B",
+                "name": "American Light Something Else",
             }
+
         ]
     }
 ];
@@ -77,22 +82,37 @@ var app = require('../style_parser.js');
 
 
 it('style parser: style exists', () => {
-    matched_style = app.search_style("Standard American Beer", "American Light Lager");
+    matched_style = app.search_style("Standard American Beer", "American Light Lager", "");
     assert.equal(matched_style['id'], '1A');
 });
 
 it('style parser: category exists but style not found', () => {
-    assert.throws(function () {app.search_style("Standard American Beer", "American Light Shit");}, Error, "style not found");
+    assert.throws(function () {app.search_style("Standard American Beer", "American Light Shit", "");}, Error, "style not found");
 });
 
 it('style parser: category does not exists but style does', () => {
-    assert.throws(function () {app.search_style("Standard American Shit", "American Light Lager");}, Error, "style not found");
+    assert.throws(function () {app.search_style("Standard American Shit", "American Light Lager", "");}, Error, "style not found");
 });
 
 it('style parser: category exists and given style is a prefix of what exists', () => {
-    assert.throws(function () {app.search_style("Standard American Beer", "American Light ");}, Error, "style not found");
+    assert.throws(function () {app.search_style("Standard American Beer", "American Light ", "");}, Error, "style not found");
 });
 
 it('style parser: category is a prefix of what exists and style exists', () => {
-    assert.throws(function () {app.search_style("Standard American ", "American Light Lager");}, Error, "style not found");
+    assert.throws(function () {app.search_style("Standard American ", "American Light Lager", "");}, Error, "style not found");
+});
+
+it('style parser: style exists with correct id', () => {
+    matched_style = app.search_style("Standard American Beer", "American Light Lager", "1A");
+    assert.equal(matched_style['id'], '1A');
+});
+
+it('style parser: style id over style names', () => {
+    matched_style = app.search_style("Standard American Beer", "American Light Something Else", "1A");
+    assert.equal(matched_style['id'], '1A');
+});
+
+it('style parser: style exists with uncorrect id', () => {
+    matched_style = app.search_style("Standard American Beer", "American Light Lager", "2B");
+    assert.equal(matched_style['id'], '1A');
 });
