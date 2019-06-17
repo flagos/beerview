@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('.sidenav').sidenav();
+
 });
 
 var recipes = [];
@@ -114,4 +115,12 @@ function display_recipe(recipe_idx) {
 	    <a class="breadcrumb">${recipe.name}</a>
 `;
     $('.collapsible').collapsible();
+
+
+    document.getElementById("recipe-name").addEventListener("input", function() {
+        console.log("input event fired");
+    }, false);
+
+
+
 }
