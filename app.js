@@ -117,10 +117,16 @@ function display_recipe(recipe_idx) {
     $('.collapsible').collapsible();
 
 
-    document.getElementById("recipe-name").addEventListener("input", function() {
+    var contenteditable_objects = document.querySelectorAll('[contenteditable=true]');
+
+    var myFunction = function() {
         current_recipe_modif = true;
         console.log("input event fired");
-    }, false);
+    };
+
+    for (var i = 0; i < contenteditable_objects.length; i++) {
+        contenteditable_objects[i].addEventListener('input', myFunction, false);
+    }
 
     $('.fixed-action-btn').floatingActionButton();
 
