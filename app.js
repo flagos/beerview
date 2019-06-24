@@ -11,7 +11,7 @@ Brauhaus.getStyleCategories().forEach(function(Sc){
     styles[Sc] = Brauhaus.getStyles(Sc);
 });
 
-
+var current_recipe_modif = false;
 
 require('electron').ipcRenderer.on('recipes-list', (event, message) => {
     console.log(message);
@@ -118,9 +118,11 @@ function display_recipe(recipe_idx) {
 
 
     document.getElementById("recipe-name").addEventListener("input", function() {
+        current_recipe_modif = true;
         console.log("input event fired");
     }, false);
 
+    $('.fixed-action-btn').floatingActionButton();
 
 
 }

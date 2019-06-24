@@ -139,3 +139,15 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
               .collapsible-body-content
                 div(class='yeast-type col s6')= yeast.type
                 div(class='yeast-form col s6')= yeast.form
+
+
+.fixed-action-btn
+  a(class="btn-floating btn-large red")
+    i(class="large material-icons") mode_edit
+  ul
+    li
+      a(class="btn-floating blue")
+        i(class="material-icons" title="save") save
+    li
+      a(class="btn-floating green")
+        i(class="material-icons" title="clone") call_split
