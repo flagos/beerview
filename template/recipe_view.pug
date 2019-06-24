@@ -2,11 +2,14 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
 
 .section
   div(class='col s4')
-    div Designed by: #{recipe.author}
+    span Designed by:
+    span(contenteditable="true" style="margin-left: 5px") #{recipe.author}
   div(class='col s4')
     div Style: #{recipe.style.category} #{recipe.style.category!='' ? '-' : ''} #{recipe.style.name}
   div(class='col s4')
-    div Batchsize: #{recipe.batchSize} L
+    span Batchsize:
+    span(contenteditable="true" style="margin-left: 5px") #{recipe.batchSize}
+    span(style="margin-left: 5px") L
 
 
 .section
@@ -83,7 +86,7 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
             .collapsible-header
               span.fermentable-icon
                 i(class="material-icons circle" style="background-color:" + fermentable.colorCss())
-              span.fermentable-name= fermentable.name
+              span(class="fermentable-name" contenteditable="true" style="margin-left: 5px")= fermentable.name
               span.fermentable-quantity= fermentable.weight + ' kg'
             .collapsible-body
               .collapsible-body-content
