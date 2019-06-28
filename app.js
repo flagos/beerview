@@ -119,16 +119,38 @@ function display_recipe(recipe_idx) {
 
     var contenteditable_objects = document.querySelectorAll('[contenteditable=true]');
 
-    var myFunction = function() {
-        current_recipe_modif = true;
-        console.log("input event fired");
-    };
+    // var myFunction = function() {
+    //     current_recipe_modif = true;
+    //     console.log("input event fired");
+    // };
 
-    for (var i = 0; i < contenteditable_objects.length; i++) {
-        contenteditable_objects[i].addEventListener('input', myFunction, false);
-    }
+    // for (var i = 0; i < contenteditable_objects.length; i++) {
+    //     contenteditable_objects[i].addEventListener('input', myFunction, false);
+    // }
 
     $('.fixed-action-btn').floatingActionButton();
 
+    init_autocompletion();
+}
+
+function init_autocompletion() {
+
+
+    var liste = [
+        "Draggable",
+        "Droppable",
+        "Resizable",
+        "Selectable",
+        "Sortable"
+    ];
+
+    $('#style_name').autocomplete({
+        source : liste
+    });
+
+
+
+
+    console.log("init done");
 
 }
