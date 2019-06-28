@@ -136,16 +136,16 @@ function display_recipe(recipe_idx) {
 function init_autocompletion() {
 
 
-    var liste = [
-        "Draggable",
-        "Droppable",
-        "Resizable",
-        "Selectable",
-        "Sortable"
-    ];
+    var styles_completion = [];
+
+    for (var Sc in styles) {
+        for (let style of styles[Sc]) {
+            styles_completion.push(Sc + " - " + style);
+        }
+    }
 
     $('#style_name').autocomplete({
-        source : liste
+        source : styles_completion
     });
 
 
