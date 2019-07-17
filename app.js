@@ -11,10 +11,9 @@ Brauhaus.getStyleCategories().forEach(function(Sc){
     styles[Sc] = Brauhaus.getStyles(Sc);
 });
 
-var current_recipe_modif = false;
+var current_recipe = null;
 
 require('electron').ipcRenderer.on('recipes-list', (event, message) => {
-    console.log(message);
 
     recipes = [];
 
@@ -24,14 +23,12 @@ require('electron').ipcRenderer.on('recipes-list', (event, message) => {
 	recipes.push(r);
     });
 
-    console.log(recipes);
-
     // construct list
     var idx = 0;
     recipes.forEach(function(recipe){
 	$("#collection-search-results").append(
 	    `
-<li class="collection-item avatar" onClick='display_recipe(${idx})'>
+<li class="collection-item avatar" onClick='display_recipe_idx(${idx})'>
     <i class="material-icons circle" style="background-color:${Brauhaus.srmToCss(recipe[0].color)}"></i>
     <span class="title">${recipe[0].name}</span>
     <p>${recipe[0].style.category} ${recipe[0].style.category!='' ? '-' : ''}  ${recipe[0].style.name}<br>
@@ -90,20 +87,23 @@ function search_recipes() {
 }
 
 
-function display_recipe(recipe_idx) {
+function display_recipe_idx(recipe_idx) {
+    current_recipe = recipes[recipe_idx][0];
+    display_recipe(current_recipe);
+}
 
-    var recipe = recipes[recipe_idx][0];
+function display_recipe(recipe) {
+
     var style = null;
     try {
         style = Brauhaus.getStyle(recipe.style.category, recipe.style.name);
-        console.log(style);
     } catch(e) {
 
     };
 
 
     document.getElementById("recipe_view").innerHTML = compiledTemplateRecipeView({
-	recipe: recipe,
+	    recipe: recipe,
         style: style,
     });
 
@@ -118,15 +118,6 @@ function display_recipe(recipe_idx) {
 
 
     var contenteditable_objects = document.querySelectorAll('[contenteditable=true]');
-
-    // var myFunction = function() {
-    //     current_recipe_modif = true;
-    //     console.log("input event fired");
-    // };
-
-    // for (var i = 0; i < contenteditable_objects.length; i++) {
-    //     contenteditable_objects[i].addEventListener('input', myFunction, false);
-    // }
 
     $('.fixed-action-btn').floatingActionButton();
 
@@ -145,12 +136,23 @@ function init_autocompletion() {
     }
 
     $('#style_name').autocomplete({
-        source : styles_completion
+        source : styles_completion,
+        change: recipe_completion_onchange,
     });
 
 
+}
 
+function recipe_completion_onchange(event, ui) {
+    var style_input = $('#style_name').text();
 
-    console.log("init done");
+    var segments = style_input.split(' - ');
 
+    var style_category = segments.shift();
+    var style_name = segments.join(' - ');
+
+    current_recipe.style.category = style_category;
+    current_recipe.style.name = style_name;
+
+    display_recipe(current_recipe);
 }
