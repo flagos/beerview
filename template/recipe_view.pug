@@ -6,7 +6,7 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
     span(contenteditable="true" style="margin-left: 5px") #{recipe.author}
   div(class='col s4')
     span Style:
-    div(id="style_name" contenteditable="true" style="margin-left: 5px; display: inline-block") #{recipe.style.category} #{recipe.style.category!='' ? '-' : ''} #{recipe.style.name}
+    div(id="style_name" contenteditable="true" style="margin-left: 5px; display: inline-block") #{recipe.style.name}
   div(class='col s4')
     span Batchsize:
     span(contenteditable="true" style="margin-left: 5px") #{recipe.batchSize}

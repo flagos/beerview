@@ -131,28 +131,66 @@ function init_autocompletion() {
 
     for (var Sc in styles) {
         for (let style of styles[Sc]) {
-            styles_completion.push(Sc + " - " + style);
+            styles_completion.push({label: style, category: Sc});
         }
     }
+    $( function() {
+        $.widget( "custom.catcomplete", $.ui.autocomplete, {
+            _create: function() {
+                this._super();
+                this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+            },
+            _renderMenu: function( ul, items ) {
+                var that = this,
+                    currentCategory = "";
+                $.each( items, function( index, item ) {
+                    var li;
+                    if ( item.category != currentCategory ) {
+                        ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                        currentCategory = item.category;
+                    }
+                    li = that._renderItemData( ul, item );
+                    if ( item.category ) {
+                        li.attr( "aria-label", item.category + " : " + item.label );
+                    }
+                });
+            }
+        });
 
-    $('#style_name').autocomplete({
+    $('#style_name').catcomplete({
         source : styles_completion,
-        change: recipe_completion_onchange,
+        change: style_completion_onchange,
+        display: 0
     });
 
 
+        var data = [
+            { label: "anders", category: "" },
+            { label: "andreas", category: "" },
+            { label: "antal", category: "" },
+            { label: "annhhx10", category: "Products" },
+            { label: "annk K12", category: "Products" },
+            { label: "annttop C13", category: "Products" },
+            { label: "anders andersson", category: "People" },
+            { label: "andreas andersson", category: "People" },
+            { label: "andreas johnson", category: "People" }
+        ];
+
+        $('span.fermentable-name').catcomplete({
+            source : data,
+        });
+
+    } );
 }
 
-function recipe_completion_onchange(event, ui) {
-    var style_input = $('#style_name').text();
+function style_completion_onchange(event, ui) {
 
-    var segments = style_input.split(' - ');
+    console.log(event);
+    console.log(ui);
 
-    var style_category = segments.shift();
-    var style_name = segments.join(' - ');
 
-    current_recipe.style.category = style_category;
-    current_recipe.style.name = style_name;
+    current_recipe.style.category = ui.item.category;
+    current_recipe.style.name = ui.item.label;
 
     display_recipe(current_recipe);
 }
