@@ -13,6 +13,23 @@ Brauhaus.getStyleCategories().forEach(function(Sc){
 
 var current_recipe = null;
 
+const ingredients_malt = [];
+const ingredients_hop = [];
+
+fs.createReadStream('ingredients/malt.csv')
+  .pipe(csv())
+  .on('data', (data) => ingredients_malt.push(data))
+  .on('end', () => {
+    console.log(ingredients_malt);
+  });
+
+fs.createReadStream('ingredients/hop.csv')
+  .pipe(csv())
+  .on('data', (data) => ingredients_hop.push(data))
+  .on('end', () => {
+    console.log(ingredients_hop);
+  });
+
 require('electron').ipcRenderer.on('recipes-list', (event, message) => {
 
     recipes = [];
