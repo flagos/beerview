@@ -26,6 +26,7 @@ fs.createReadStream('ingredients/malt.csv')
 	});
 
       fermentable_completion.sort((a, b) => (a.category > b.category) ? 1 : -1);
+      // console.log(ingredients_malt);
   });
 
 fs.createReadStream('ingredients/hop.csv')
