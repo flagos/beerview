@@ -15,19 +15,24 @@ var current_recipe = null;
 
 const ingredients_malt = [];
 const ingredients_hop = [];
+const fermentable_completion = [];
 
 fs.createReadStream('ingredients/malt.csv')
   .pipe(csv())
   .on('data', (data) => ingredients_malt.push(data))
   .on('end', () => {
-    console.log(ingredients_malt);
+	ingredients_malt.forEach(function(item){
+	    fermentable_completion.push({label: item.Name, category: item.Type});
+	});
+
+      fermentable_completion.sort((a, b) => (a.category > b.category) ? 1 : -1);
   });
 
 fs.createReadStream('ingredients/hop.csv')
   .pipe(csv())
   .on('data', (data) => ingredients_hop.push(data))
   .on('end', () => {
-    console.log(ingredients_hop);
+    // console.log(ingredients_hop);
   });
 
 require('electron').ipcRenderer.on('recipes-list', (event, message) => {
@@ -174,27 +179,17 @@ function init_autocompletion() {
             }
         });
 
-    $('#style_name').catcomplete({
-        source : styles_completion,
-        change: style_completion_onchange,
-        display: 0
-    });
+	$('#style_name').catcomplete({
+            source : styles_completion,
+            change: style_completion_onchange,
+            display: 0
+	});
 
 
-        var data = [
-            { label: "anders", category: "" },
-            { label: "andreas", category: "" },
-            { label: "antal", category: "" },
-            { label: "annhhx10", category: "Products" },
-            { label: "annk K12", category: "Products" },
-            { label: "annttop C13", category: "Products" },
-            { label: "anders andersson", category: "People" },
-            { label: "andreas andersson", category: "People" },
-            { label: "andreas johnson", category: "People" }
-        ];
 
-        $('span.fermentable-name').catcomplete({
-            source : data,
+
+	$('span.fermentable-name').catcomplete({
+            source : fermentable_completion,
         });
 
     } );
