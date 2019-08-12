@@ -18,6 +18,8 @@
       const pug = require('pug');
       const compiledTemplateRecipeView = pug.compileFile('template/recipe_view.pug');
 
+      const csv = require('csv-parser')
+      const fs = require('fs')
 
     </script>
 
@@ -31,13 +33,19 @@
 
     <!-- app css -->
     <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="static/styles/jquery-ui.css">
 
   </head>
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
 
+    <!-- Local libraies -->
+    <!-- <script src="node_modules/jquery-jeditable/dist/jquery.jeditable.min.js"></script> -->
+    <script src="scripts/jquery-ui/jquery-ui.min.js"></script>
     <!-- App js -->
     <script src="app.js"></script>
+
+
 
     <nav>
       <div class="nav-wrapper" id="nav-wrapper-top">

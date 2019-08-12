@@ -4,8 +4,8 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-      "start": "electron .",
-      "test": "mocha scripts/*/tests"
+    "start": "electron .",
+    "test": "mocha scripts/*/tests"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -25,8 +25,9 @@
     "brauhaus": "^1.1.1",
     "brauhaus-beerxml": "^1.0.0",
     "brauhaus-styles": "^1.0.0",
+    "csv-parser": "^2.3.0",
     "jquery": "^3.4.0",
+    "jquery-jeditable": "^2.0.10",
     "pug": "^2.0.3"
   }
-
 }

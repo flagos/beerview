@@ -1,12 +1,16 @@
-h3 #{recipe.name}
+h3(contenteditable="true", id="recipe-name") #{recipe.name}
 
 .section
   div(class='col s4')
-    div Designed by: #{recipe.author}
+    span Designed by:
+    span(contenteditable="true" style="margin-left: 5px") #{recipe.author}
   div(class='col s4')
-    div Style: #{recipe.style.category} #{recipe.style.category!='' ? '-' : ''} #{recipe.style.name}
+    span Style:
+    div(id="style_name" contenteditable="true" style="margin-left: 5px; display: inline-block") #{recipe.style.name}
   div(class='col s4')
-    div Batchsize: #{recipe.batchSize} L
+    span Batchsize:
+    span(contenteditable="true" style="margin-left: 5px") #{recipe.batchSize}
+    span(style="margin-left: 5px") L
 
 
 .section
@@ -83,7 +87,7 @@ h3 #{recipe.name}
             .collapsible-header
               span.fermentable-icon
                 i(class="material-icons circle" style="background-color:" + fermentable.colorCss())
-              span.fermentable-name= fermentable.name
+              span(class="fermentable-name" contenteditable="true" style="margin-left: 5px")= fermentable.name
               span.fermentable-quantity= fermentable.weight + ' kg'
             .collapsible-body
               .collapsible-body-content
@@ -137,3 +141,15 @@ h3 #{recipe.name}
               .collapsible-body-content
                 div(class='yeast-type col s6')= yeast.type
                 div(class='yeast-form col s6')= yeast.form
+
+
+.fixed-action-btn
+  a(class="btn-floating btn-large red")
+    i(class="large material-icons") mode_edit
+  ul
+    li
+      a(class="btn-floating blue")
+        i(class="material-icons" title="save") save
+    li
+      a(class="btn-floating green")
+        i(class="material-icons" title="clone") call_split

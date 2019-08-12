@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('.sidenav').sidenav();
+
 });
 
 var recipes = [];
@@ -10,10 +11,32 @@ Brauhaus.getStyleCategories().forEach(function(Sc){
     styles[Sc] = Brauhaus.getStyles(Sc);
 });
 
+var current_recipe = null;
 
+const ingredients_malt = [];
+const ingredients_hop = [];
+const fermentable_completion = [];
+
+fs.createReadStream('ingredients/malt.csv')
+  .pipe(csv())
+  .on('data', (data) => ingredients_malt.push(data))
+  .on('end', () => {
+	ingredients_malt.forEach(function(item){
+	    fermentable_completion.push({label: item.Name, category: item.Type});
+	});
+
+      fermentable_completion.sort((a, b) => (a.category > b.category) ? 1 : -1);
+      // console.log(ingredients_malt);
+  });
+
+fs.createReadStream('ingredients/hop.csv')
+  .pipe(csv())
+  .on('data', (data) => ingredients_hop.push(data))
+  .on('end', () => {
+    // console.log(ingredients_hop);
+  });
 
 require('electron').ipcRenderer.on('recipes-list', (event, message) => {
-    console.log(message);
 
     recipes = [];
 
@@ -23,14 +46,12 @@ require('electron').ipcRenderer.on('recipes-list', (event, message) => {
 	recipes.push(r);
     });
 
-    console.log(recipes);
-
     // construct list
     var idx = 0;
     recipes.forEach(function(recipe){
 	$("#collection-search-results").append(
 	    `
-<li class="collection-item avatar" onClick='display_recipe(${idx})'>
+<li class="collection-item avatar" onClick='display_recipe_idx(${idx})'>
     <i class="material-icons circle" style="background-color:${Brauhaus.srmToCss(recipe[0].color)}"></i>
     <span class="title">${recipe[0].name}</span>
     <p>${recipe[0].style.category} ${recipe[0].style.category!='' ? '-' : ''}  ${recipe[0].style.name}<br>
@@ -89,20 +110,23 @@ function search_recipes() {
 }
 
 
-function display_recipe(recipe_idx) {
+function display_recipe_idx(recipe_idx) {
+    current_recipe = recipes[recipe_idx][0];
+    display_recipe(current_recipe);
+}
 
-    var recipe = recipes[recipe_idx][0];
+function display_recipe(recipe) {
+
     var style = null;
     try {
         style = Brauhaus.getStyle(recipe.style.category, recipe.style.name);
-        console.log(style);
     } catch(e) {
 
     };
 
 
     document.getElementById("recipe_view").innerHTML = compiledTemplateRecipeView({
-	recipe: recipe,
+	    recipe: recipe,
         style: style,
     });
 
@@ -114,4 +138,72 @@ function display_recipe(recipe_idx) {
 	    <a class="breadcrumb">${recipe.name}</a>
 `;
     $('.collapsible').collapsible();
+
+
+    var contenteditable_objects = document.querySelectorAll('[contenteditable=true]');
+
+    $('.fixed-action-btn').floatingActionButton();
+
+    init_autocompletion();
+}
+
+function init_autocompletion() {
+
+
+    var styles_completion = [];
+
+    for (var Sc in styles) {
+        for (let style of styles[Sc]) {
+            styles_completion.push({label: style, category: Sc});
+        }
+    }
+    $( function() {
+        $.widget( "custom.catcomplete", $.ui.autocomplete, {
+            _create: function() {
+                this._super();
+                this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+            },
+            _renderMenu: function( ul, items ) {
+                var that = this,
+                    currentCategory = "";
+                $.each( items, function( index, item ) {
+                    var li;
+                    if ( item.category != currentCategory ) {
+                        ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                        currentCategory = item.category;
+                    }
+                    li = that._renderItemData( ul, item );
+                    if ( item.category ) {
+                        li.attr( "aria-label", item.category + " : " + item.label );
+                    }
+                });
+            }
+        });
+
+	$('#style_name').catcomplete({
+            source : styles_completion,
+            change: style_completion_onchange,
+            display: 0
+	});
+
+
+
+
+	$('span.fermentable-name').catcomplete({
+            source : fermentable_completion,
+        });
+
+    } );
+}
+
+function style_completion_onchange(event, ui) {
+
+    console.log(event);
+    console.log(ui);
+
+
+    current_recipe.style.category = ui.item.category;
+    current_recipe.style.name = ui.item.label;
+
+    display_recipe(current_recipe);
 }
