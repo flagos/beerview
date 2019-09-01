@@ -191,19 +191,30 @@ function init_autocompletion() {
 
 	$('span.fermentable-name').catcomplete({
             source : fermentable_completion,
+            change: fermentable_completion_onchange,
+            display: 0
         });
 
     } );
 }
 
 function style_completion_onchange(event, ui) {
-
-    console.log(event);
-    console.log(ui);
-
-
     current_recipe.style.category = ui.item.category;
     current_recipe.style.name = ui.item.label;
+
+    display_recipe(current_recipe);
+}
+
+function fermentable_completion_onchange(event, ui) {
+
+    var index =  $( ".ingredients-table li" ).index(event.target.parentElement.parentElement);
+    var qty = parseFloat(event.target.parentElement.children[2].children[0].textContent);
+
+    console.log(index);
+
+    current_recipe.fermentables[index].name = ui.item.name;
+    current_recipe.fermentables[index].weight = qty;
+        current_recipe.style.name = ui.item.label;
 
     display_recipe(current_recipe);
 }

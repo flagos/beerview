@@ -88,7 +88,9 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
               span.fermentable-icon
                 i(class="material-icons circle" style="background-color:" + fermentable.colorCss())
               span(class="fermentable-name" contenteditable="true" style="margin-left: 5px")= fermentable.name
-              span.fermentable-quantity= fermentable.weight + ' kg'
+              span.fermentable-quantity
+                span.fermentable-quantity-value= fermentable.weight
+                span.fermentable-quantity-unit  kg
             .collapsible-body
               .collapsible-body-content
                 div(class='fermentable-color col s6')= Brauhaus.srmToEbc(fermentable.color).toFixed(0) + ' EBC'
