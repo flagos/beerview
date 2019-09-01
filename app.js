@@ -212,9 +212,8 @@ function fermentable_completion_onchange(event, ui) {
 
     console.log(index);
 
-    current_recipe.fermentables[index].name = ui.item.name;
+    current_recipe.fermentables[index].name = event.target.textContent;
     current_recipe.fermentables[index].weight = qty;
-        current_recipe.style.name = ui.item.label;
 
     display_recipe(current_recipe);
 }
