@@ -89,7 +89,7 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
                 i(class="material-icons circle" style="background-color:" + fermentable.colorCss())
               span(class="fermentable-name" contenteditable="true" style="margin-left: 5px")= fermentable.name
               span.fermentable-quantity
-                span.fermentable-quantity-value= fermentable.weight
+                span.fermentable-quantity-value(contenteditable="true")= fermentable.weight
                 span.fermentable-quantity-unit  kg
             .collapsible-body
               .collapsible-body-content

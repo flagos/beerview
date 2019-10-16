@@ -126,7 +126,7 @@ function display_recipe(recipe) {
 
 
     document.getElementById("recipe_view").innerHTML = compiledTemplateRecipeView({
-	    recipe: recipe,
+	recipe: recipe,
         style: style,
     });
 
@@ -145,6 +145,17 @@ function display_recipe(recipe) {
     $('.fixed-action-btn').floatingActionButton();
 
     init_autocompletion();
+
+    $('span.fermentable-quantity-value').focusout((event) => {
+	var index =  $( ".ingredients-table li" ).index(event.target.parentElement.parentElement.parentElement);
+	var qty = parseFloat(event.target.parentElement.parentElement.children[2].children[0].textContent);
+
+	current_recipe.fermentables[index].weight = qty;
+
+	current_recipe.calculate();
+	display_recipe(current_recipe);
+k    });
+
 }
 
 function init_autocompletion() {
@@ -185,9 +196,6 @@ function init_autocompletion() {
             change: style_completion_onchange,
             display: 0
 	});
-
-
-
 
 	$('span.fermentable-name').catcomplete({
             source : fermentable_completion,
