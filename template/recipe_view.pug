@@ -80,7 +80,7 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
 
     h6 Fermentables
 
-    .ingredients-table
+    .ingredients-table#fermentable-table
       ul.collapsible
         each fermentable in recipe.fermentables
           li
@@ -99,15 +99,17 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
     h6 Hops
 
 - var no_misc = true;
-    .ingredients-table
+    .ingredients-table#hop-table
       ul.collapsible
         each hop in recipe.spices
           if hop.aa != 0
             li
               .collapsible-header
-                span.hop-name= hop.name
+                span(class="hop-name"  contenteditable="true")= hop.name
                 span.hop-use #{hop.use}: #{hop.time} #{hop.use!="Dry Hop" ? 'm':'days'}
-                span.hop-quantity #{hop.weight*1000} g
+                span.hop-quantity
+                  span.hop-quantity-value(contenteditable="true") #{hop.weight*1000}
+                  span.hop-quantity-unit  g
               .collapsible-body
                 .collapsible-body-content
                   div(class='hop-aa col s6')= hop.aa + ' AA'
@@ -118,7 +120,7 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
     h6 Misc
 
 
-    .ingredients-table
+    .ingredients-table#yeast-table
       if no_misc == false
         ul.collapsible
           each misc in recipe.spices

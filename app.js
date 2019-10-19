@@ -15,8 +15,10 @@ var current_recipe = null;
 
 const ingredients_malt = [];
 const ingredients_malt_per_name = {};
-const ingredients_hop = [];
 const fermentable_completion = [];
+const ingredients_hop = [];
+const ingredients_hop_per_name = {};
+const hop_completion = [];
 
 
 fs.createReadStream('ingredients/malt.csv')
@@ -36,7 +38,15 @@ fs.createReadStream('ingredients/hop.csv')
   .pipe(csv())
   .on('data', (data) => ingredients_hop.push(data))
   .on('end', () => {
-    // console.log(ingredients_hop);
+	ingredients_hop.forEach(function(item){
+	    hop_completion.push({label: item.Name, category: item.Type});
+	    ingredients_hop_per_name[item.Name] = item;
+	});
+
+      hop_completion.sort((a, b) => (a.category > b.category) ? 1 : -1);
+
+
+      // console.log(ingredients_hop);
   });
 
 require('electron').ipcRenderer.on('recipes-list', (event, message) => {
@@ -150,14 +160,24 @@ function display_recipe(recipe) {
     init_autocompletion();
 
     $('span.fermentable-quantity-value').focusout((event) => {
-	var index =  $( ".ingredients-table li" ).index(event.target.parentElement.parentElement.parentElement);
+	var index =  $( "#fermentable-table li" ).index(event.target.parentElement.parentElement.parentElement);
 	var qty = parseFloat(event.target.parentElement.parentElement.children[2].children[0].textContent);
 
 	current_recipe.fermentables[index].weight = qty;
 
 	current_recipe.calculate();
 	display_recipe(current_recipe);
-k    });
+    });
+
+    $('span.hop-quantity-value').focusout((event) => {
+	var index =  $( "#hop-table li" ).index(event.target.parentElement.parentElement.parentElement);
+	var qty = parseFloat(event.target.parentElement.parentElement.children[2].children[0].textContent);
+
+	current_recipe.spices[index].weight = qty/1000;
+
+	current_recipe.calculate();
+	display_recipe(current_recipe);
+    });
 
 }
 
@@ -206,6 +226,12 @@ function init_autocompletion() {
             display: 0
         });
 
+	$('span.hop-name').catcomplete({
+            source : hop_completion,
+            change: hop_completion_onchange,
+            display: 0
+        });
+
     } );
 }
 
@@ -218,7 +244,7 @@ function style_completion_onchange(event, ui) {
 
 function fermentable_completion_onchange(event, ui) {
 
-    var index =  $( ".ingredients-table li" ).index(event.target.parentElement.parentElement);
+    var index =  $( "#fermentable-table li" ).index(event.target.parentElement.parentElement);
     var qty = parseFloat(event.target.parentElement.children[2].children[0].textContent);
 
     current_recipe.fermentables[index].name = event.target.textContent;
@@ -227,6 +253,20 @@ function fermentable_completion_onchange(event, ui) {
     current_recipe.fermentables[index].color = parseFloat(ingredients_malt_per_name[current_recipe.fermentables[index].name]["Color SRM"]);
     current_recipe.fermentables[index].yield = parseFloat(ingredients_malt_per_name[current_recipe.fermentables[index].name]["Dry Yield"]);
 
+
+    current_recipe.calculate();
+    display_recipe(current_recipe);
+}
+
+function hop_completion_onchange(event, ui) {
+
+    var index =  $( "#hop-table li" ).index(event.target.parentElement.parentElement);
+    var qty = parseFloat(event.target.parentElement.children[2].children[0].textContent);
+
+    current_recipe.spices[index].name = event.target.textContent;
+    current_recipe.spices[index].weight = qty/1000;
+
+    current_recipe.spices[index].aa = parseFloat(ingredients_hop_per_name[current_recipe.spices[index].name]["Alpha (%)"]);
 
     current_recipe.calculate();
     display_recipe(current_recipe);
