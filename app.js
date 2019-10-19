@@ -14,8 +14,10 @@ Brauhaus.getStyleCategories().forEach(function(Sc){
 var current_recipe = null;
 
 const ingredients_malt = [];
+const ingredients_malt_per_name = {};
 const ingredients_hop = [];
 const fermentable_completion = [];
+
 
 fs.createReadStream('ingredients/malt.csv')
   .pipe(csv())
@@ -23,6 +25,7 @@ fs.createReadStream('ingredients/malt.csv')
   .on('end', () => {
 	ingredients_malt.forEach(function(item){
 	    fermentable_completion.push({label: item.Name, category: item.Type});
+	    ingredients_malt_per_name[item.Name] = item;
 	});
 
       fermentable_completion.sort((a, b) => (a.category > b.category) ? 1 : -1);
@@ -218,10 +221,13 @@ function fermentable_completion_onchange(event, ui) {
     var index =  $( ".ingredients-table li" ).index(event.target.parentElement.parentElement);
     var qty = parseFloat(event.target.parentElement.children[2].children[0].textContent);
 
-    console.log(index);
-
     current_recipe.fermentables[index].name = event.target.textContent;
     current_recipe.fermentables[index].weight = qty;
 
+    current_recipe.fermentables[index].color = parseFloat(ingredients_malt_per_name[current_recipe.fermentables[index].name]["Color SRM"]);
+    current_recipe.fermentables[index].yield = parseFloat(ingredients_malt_per_name[current_recipe.fermentables[index].name]["Dry Yield"]);
+
+
+    current_recipe.calculate();
     display_recipe(current_recipe);
 }

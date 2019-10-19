@@ -1,90 +1,90 @@
-Name,Country,Type,Color,Mash,SG,Max proportion,Dry Yield
-Acid Malt,Germany,Grain,3 SRM,Yes,1.027 SG,10.0 %,58.7
-Amber Dry Extract,US,Dry Extract,13 SRM,No,1.044 SG,100.0 %,95.0
-Amber Liquid Extract,US,Extract,13 SRM,No,1.036 SG,100.0 %,78.0
-Amber Malt,United Kingdom,Grain,22 SRM,Yes,1.035 SG,20.0 %,75.0
-Aromatic Malt,Belgium,Grain,26 SRM,Yes,1.036 SG,10.0 %,78.0
-Barley Hulls,US,Adjunct,0 SRM,No,1.000 SG,5.0 %,0.0
-Barley Flaked,US,Grain,2 SRM,Yes,1.032 SG,20.0 %,70.0
-Barley Raw,US,Grain,2 SRM,Yes,1.028 SG,15.0 %,60.9
-Barley Torrefied,US,Grain,2 SRM,Yes,1.036 SG,40.0 %,79.0
-Biscuit Malt,Belgium,Grain,23 SRM,No,1.036 SG,10.0 %,79.0
-Black (Patent) Malt,US,Grain,500 SRM,No,1.025 SG,10.0 %,55.0
-Black Barley (Stout),US,Grain,500 SRM,No,1.025 SG,10.0 %,55.0
-Brown Malt,United Kingdom,Grain,65 SRM,Yes,1.032 SG,10.0 %,70.0
-Brown Sugar Dark,US,Sugar,50 SRM,No,1.046 SG,10.0 %,100.0
-Brown Sugar Light,US,Sugar,8 SRM,No,1.046 SG,10.0 %,100.0
-Brumalt,Germany,Grain,23 SRM,Yes,1.033 SG,10.0 %,71.7
-Candi Sugar Amber,Belgium,Sugar,75 SRM,No,1.036 SG,20.0 %,78.3
-Candi Sugar Clear,Belgium,Sugar,1 SRM,No,1.036 SG,20.0 %,78.3
-Candi Sugar Dark,Belgium,Sugar,275 SRM,No,1.036 SG,20.0 %,78.3
-Cane (Beet) Sugar,US,Sugar,0 SRM,No,1.046 SG,7.0 %,100.0
-Cara-Pils/Dextrine,US,Grain,2 SRM,No,1.033 SG,20.0 %,72.0
-Caraamber,US,Grain,30 SRM,No,1.035 SG,20.0 %,75.0
-Carafoam,US,Grain,2 SRM,No,1.033 SG,20.0 %,72.0
-Caramel/Crystal Malt - 10L,US,Grain,10 SRM,No,1.035 SG,20.0 %,75.0
-Caramel/Crystal Malt - 20L,US,Grain,20 SRM,No,1.035 SG,20.0 %,75.0
-Caramel/Crystal Malt - 30L,US,Grain,30 SRM,No,1.035 SG,20.0 %,75.0
-Caramel/Crystal Malt - 40L,US,Grain,40 SRM,No,1.034 SG,20.0 %,74.0
-Caramel/Crystal Malt - 60L,US,Grain,60 SRM,No,1.034 SG,20.0 %,74.0
-Caramel/Crystal Malt - 80L,US,Grain,80 SRM,No,1.034 SG,20.0 %,74.0
-Caramel/Crystal Malt -120L,US,Grain,120 SRM,No,1.033 SG,20.0 %,72.0
-Caramunich Malt,Belgium,Grain,56 SRM,No,1.033 SG,10.0 %,71.7
-Carared,US,Grain,20 SRM,No,1.035 SG,20.0 %,75.0
-Caravienne Malt,Belgium,Grain,22 SRM,No,1.034 SG,10.0 %,73.9
-Chocolate Malt,US,Grain,350 SRM,No,1.028 SG,10.0 %,60.0
-Chocolate Malt,United Kingdom,Grain,450 SRM,No,1.034 SG,10.0 %,73.0
-Corn Sugar (Dextrose),US,Sugar,0 SRM,No,1.046 SG,5.0 %,100.0
-Corn Syrup,US,Sugar,1 SRM,No,1.036 SG,10.0 %,78.3
-Corn Flaked,US,Grain,1 SRM,Yes,1.037 SG,40.0 %,80.0
-Dark Dry Extract,US,Dry Extract,18 SRM,No,1.044 SG,100.0 %,95.0
-Dark Liquid Extract,US,Extract,18 SRM,No,1.036 SG,100.0 %,78.0
-Dememera Sugar,United Kingdom,Sugar,2 SRM,No,1.046 SG,10.0 %,100.0
-Extra Light Dry Extract,US,Dry Extract,3 SRM,No,1.044 SG,100.0 %,95.0
-Grits,US,Adjunct,1 SRM,No,1.037 SG,10.0 %,80.0
-Honey,US,Extract,1 SRM,No,1.035 SG,100.0 %,75.0
-Invert Sugar,United Kingdom,Sugar,0 SRM,No,1.046 SG,10.0 %,100.0
-Light Dry Extract,US,Dry Extract,8 SRM,No,1.044 SG,100.0 %,95.0
-Maple Syrup,US,Sugar,35 SRM,No,1.030 SG,10.0 %,65.2
-Melanoiden Malt,Germany,Grain,20 SRM,Yes,1.037 SG,15.0 %,80.0
-Mild Malt,United Kingdom,Grain,4 SRM,Yes,1.037 SG,100.0 %,80.0
-Milk Sugar (Lactose),US,Sugar,0 SRM,No,1.035 SG,10.0 %,76.1
-Molasses,US,Sugar,80 SRM,No,1.036 SG,5.0 %,78.3
-Munich Malt,Germany,Grain,9 SRM,Yes,1.037 SG,80.0 %,80.0
-Munich Malt - 10L,US,Grain,10 SRM,Yes,1.035 SG,80.0 %,77.0
-Munich Malt - 20L,US,Grain,20 SRM,Yes,1.035 SG,80.0 %,75.0
-Oats Flaked,US,Grain,1 SRM,Yes,1.037 SG,30.0 %,80.0
-Oats Malted,US,Grain,1 SRM,Yes,1.037 SG,10.0 %,80.0
-Pale Liquid Extract,US,Extract,8 SRM,No,1.036 SG,100.0 %,78.0
-Pale Malt (2 Row) Bel,Belgium,Grain,3 SRM,Yes,1.037 SG,100.0 %,80.0
-Pale Malt (2 Row) UK,United Kingdom,Grain,3 SRM,Yes,1.036 SG,100.0 %,78.0
-Pale Malt (2 Row) US,US,Grain,2 SRM,Yes,1.036 SG,100.0 %,79.0
-Pale Malt (6 Row) US,US,Grain,2 SRM,Yes,1.035 SG,100.0 %,76.0
-Peat Smoked Malt,United Kingdom,Grain,3 SRM,Yes,1.034 SG,20.0 %,74.0
-Pilsner (2 Row) Bel,Belgium,Grain,2 SRM,Yes,1.036 SG,100.0 %,79.0
-Pilsner (2 Row) Ger,Germany,Grain,2 SRM,Yes,1.037 SG,100.0 %,81.0
-Pilsner (2 Row) UK,United Kingdom,Grain,1 SRM,Yes,1.036 SG,100.0 %,78.0
-Pilsner Liquid Extract,US,Extract,4 SRM,No,1.036 SG,100.0 %,78.0
-Rice Extract Syrup,US,Extract,7 SRM,No,1.032 SG,15.0 %,69.6
-Rice Hulls,US,Adjunct,0 SRM,No,1.000 SG,5.0 %,0.0
-Rice Flaked,US,Grain,1 SRM,Yes,1.032 SG,25.0 %,70.0
-Roasted Barley,US,Grain,300 SRM,No,1.025 SG,10.0 %,55.0
-Rye Malt,US,Grain,5 SRM,Yes,1.029 SG,15.0 %,63.0
-Rye Flaked,US,Grain,2 SRM,Yes,1.036 SG,10.0 %,78.3
-Smoked Malt,Germany,Grain,9 SRM,Yes,1.037 SG,100.0 %,80.0
-Special B Malt,Belgium,Grain,180 SRM,Yes,1.030 SG,10.0 %,65.2
-Special Roast,US,Grain,50 SRM,Yes,1.033 SG,10.0 %,72.0
-Sugar Table (Sucrose),US,Sugar,1 SRM,No,1.046 SG,10.0 %,100.0
-Toasted Malt,United Kingdom,Grain,27 SRM,Yes,1.033 SG,10.0 %,71.7
-Turbinado,United Kingdom,Sugar,10 SRM,No,1.044 SG,10.0 %,95.7
-Victory Malt,US,Grain,25 SRM,Yes,1.034 SG,15.0 %,73.0
-Vienna Malt,Germany,Grain,4 SRM,Yes,1.036 SG,90.0 %,78.0
-Wheat Dry Extract,US,Dry Extract,8 SRM,No,1.044 SG,100.0 %,95.0
-Wheat Liquid Extract,US,Extract,8 SRM,No,1.036 SG,100.0 %,78.0
-Wheat Malt Bel,Belgium,Grain,2 SRM,Yes,1.037 SG,60.0 %,81.0
-Wheat Malt Dark,Germany,Grain,9 SRM,Yes,1.039 SG,20.0 %,84.0
-Wheat Malt Ger,Germany,Grain,2 SRM,Yes,1.039 SG,60.0 %,84.0
-Wheat Flaked,US,Grain,2 SRM,Yes,1.035 SG,40.0 %,77.0
-Wheat Roasted,Germany,Grain,425 SRM,Yes,1.025 SG,10.0 %,54.3
-Wheat Torrified,US,Grain,2 SRM,Yes,1.036 SG,40.0 %,79.0
-White Wheat Malt,US,Grain,2 SRM,Yes,1.040 SG,60.0 %,86.0
+Name,Country,Type,Color SRM,Mash,SG,Max proportion,Dry Yield
+Acid Malt,Germany,Grain,3,Yes,1.027 SG,10.0 %,58.7
+Amber Dry Extract,US,Dry Extract,13,No,1.044 SG,100.0 %,95.0
+Amber Liquid Extract,US,Extract,13,No,1.036 SG,100.0 %,78.0
+Amber Malt,United Kingdom,Grain,22,Yes,1.035 SG,20.0 %,75.0
+Aromatic Malt,Belgium,Grain,26,Yes,1.036 SG,10.0 %,78.0
+Barley Hulls,US,Adjunct,0,No,1.000 SG,5.0 %,0.0
+Barley Flaked,US,Grain,2,Yes,1.032 SG,20.0 %,70.0
+Barley Raw,US,Grain,2,Yes,1.028 SG,15.0 %,60.9
+Barley Torrefied,US,Grain,2,Yes,1.036 SG,40.0 %,79.0
+Biscuit Malt,Belgium,Grain,23,No,1.036 SG,10.0 %,79.0
+Black (Patent) Malt,US,Grain,500,No,1.025 SG,10.0 %,55.0
+Black Barley (Stout),US,Grain,500,No,1.025 SG,10.0 %,55.0
+Brown Malt,United Kingdom,Grain,65,Yes,1.032 SG,10.0 %,70.0
+Brown Sugar Dark,US,Sugar,50,No,1.046 SG,10.0 %,100.0
+Brown Sugar Light,US,Sugar,8,No,1.046 SG,10.0 %,100.0
+Brumalt,Germany,Grain,23,Yes,1.033 SG,10.0 %,71.7
+Candi Sugar Amber,Belgium,Sugar,75,No,1.036 SG,20.0 %,78.3
+Candi Sugar Clear,Belgium,Sugar,1,No,1.036 SG,20.0 %,78.3
+Candi Sugar Dark,Belgium,Sugar,275,No,1.036 SG,20.0 %,78.3
+Cane (Beet) Sugar,US,Sugar,0,No,1.046 SG,7.0 %,100.0
+Cara-Pils/Dextrine,US,Grain,2,No,1.033 SG,20.0 %,72.0
+Caraamber,US,Grain,30,No,1.035 SG,20.0 %,75.0
+Carafoam,US,Grain,2,No,1.033 SG,20.0 %,72.0
+Caramel/Crystal Malt - 10L,US,Grain,10,No,1.035 SG,20.0 %,75.0
+Caramel/Crystal Malt - 20L,US,Grain,20,No,1.035 SG,20.0 %,75.0
+Caramel/Crystal Malt - 30L,US,Grain,30,No,1.035 SG,20.0 %,75.0
+Caramel/Crystal Malt - 40L,US,Grain,40,No,1.034 SG,20.0 %,74.0
+Caramel/Crystal Malt - 60L,US,Grain,60,No,1.034 SG,20.0 %,74.0
+Caramel/Crystal Malt - 80L,US,Grain,80,No,1.034 SG,20.0 %,74.0
+Caramel/Crystal Malt -120L,US,Grain,120,No,1.033 SG,20.0 %,72.0
+Caramunich Malt,Belgium,Grain,56,No,1.033 SG,10.0 %,71.7
+Carared,US,Grain,20,No,1.035 SG,20.0 %,75.0
+Caravienne Malt,Belgium,Grain,22,No,1.034 SG,10.0 %,73.9
+Chocolate Malt,US,Grain,350,No,1.028 SG,10.0 %,60.0
+Chocolate Malt,United Kingdom,Grain,450,No,1.034 SG,10.0 %,73.0
+Corn Sugar (Dextrose),US,Sugar,0,No,1.046 SG,5.0 %,100.0
+Corn Syrup,US,Sugar,1,No,1.036 SG,10.0 %,78.3
+Corn Flaked,US,Grain,1,Yes,1.037 SG,40.0 %,80.0
+Dark Dry Extract,US,Dry Extract,18,No,1.044 SG,100.0 %,95.0
+Dark Liquid Extract,US,Extract,18,No,1.036 SG,100.0 %,78.0
+Dememera Sugar,United Kingdom,Sugar,2,No,1.046 SG,10.0 %,100.0
+Extra Light Dry Extract,US,Dry Extract,3,No,1.044 SG,100.0 %,95.0
+Grits,US,Adjunct,1,No,1.037 SG,10.0 %,80.0
+Honey,US,Extract,1,No,1.035 SG,100.0 %,75.0
+Invert Sugar,United Kingdom,Sugar,0,No,1.046 SG,10.0 %,100.0
+Light Dry Extract,US,Dry Extract,8,No,1.044 SG,100.0 %,95.0
+Maple Syrup,US,Sugar,35,No,1.030 SG,10.0 %,65.2
+Melanoiden Malt,Germany,Grain,20,Yes,1.037 SG,15.0 %,80.0
+Mild Malt,United Kingdom,Grain,4,Yes,1.037 SG,100.0 %,80.0
+Milk Sugar (Lactose),US,Sugar,0,No,1.035 SG,10.0 %,76.1
+Molasses,US,Sugar,80,No,1.036 SG,5.0 %,78.3
+Munich Malt,Germany,Grain,9,Yes,1.037 SG,80.0 %,80.0
+Munich Malt - 10L,US,Grain,10,Yes,1.035 SG,80.0 %,77.0
+Munich Malt - 20L,US,Grain,20,Yes,1.035 SG,80.0 %,75.0
+Oats Flaked,US,Grain,1,Yes,1.037 SG,30.0 %,80.0
+Oats Malted,US,Grain,1,Yes,1.037 SG,10.0 %,80.0
+Pale Liquid Extract,US,Extract,8,No,1.036 SG,100.0 %,78.0
+Pale Malt (2 Row) Bel,Belgium,Grain,3,Yes,1.037 SG,100.0 %,80.0
+Pale Malt (2 Row) UK,United Kingdom,Grain,3,Yes,1.036 SG,100.0 %,78.0
+Pale Malt (2 Row) US,US,Grain,2,Yes,1.036 SG,100.0 %,79.0
+Pale Malt (6 Row) US,US,Grain,2,Yes,1.035 SG,100.0 %,76.0
+Peat Smoked Malt,United Kingdom,Grain,3,Yes,1.034 SG,20.0 %,74.0
+Pilsner (2 Row) Bel,Belgium,Grain,2,Yes,1.036 SG,100.0 %,79.0
+Pilsner (2 Row) Ger,Germany,Grain,2,Yes,1.037 SG,100.0 %,81.0
+Pilsner (2 Row) UK,United Kingdom,Grain,1,Yes,1.036 SG,100.0 %,78.0
+Pilsner Liquid Extract,US,Extract,4,No,1.036 SG,100.0 %,78.0
+Rice Extract Syrup,US,Extract,7,No,1.032 SG,15.0 %,69.6
+Rice Hulls,US,Adjunct,0,No,1.000 SG,5.0 %,0.0
+Rice Flaked,US,Grain,1,Yes,1.032 SG,25.0 %,70.0
+Roasted Barley,US,Grain,300,No,1.025 SG,10.0 %,55.0
+Rye Malt,US,Grain,5,Yes,1.029 SG,15.0 %,63.0
+Rye Flaked,US,Grain,2,Yes,1.036 SG,10.0 %,78.3
+Smoked Malt,Germany,Grain,9,Yes,1.037 SG,100.0 %,80.0
+Special B Malt,Belgium,Grain,180,Yes,1.030 SG,10.0 %,65.2
+Special Roast,US,Grain,50,Yes,1.033 SG,10.0 %,72.0
+Sugar Table (Sucrose),US,Sugar,1,No,1.046 SG,10.0 %,100.0
+Toasted Malt,United Kingdom,Grain,27,Yes,1.033 SG,10.0 %,71.7
+Turbinado,United Kingdom,Sugar,10,No,1.044 SG,10.0 %,95.7
+Victory Malt,US,Grain,25,Yes,1.034 SG,15.0 %,73.0
+Vienna Malt,Germany,Grain,4,Yes,1.036 SG,90.0 %,78.0
+Wheat Dry Extract,US,Dry Extract,8,No,1.044 SG,100.0 %,95.0
+Wheat Liquid Extract,US,Extract,8,No,1.036 SG,100.0 %,78.0
+Wheat Malt Bel,Belgium,Grain,2,Yes,1.037 SG,60.0 %,81.0
+Wheat Malt Dark,Germany,Grain,9,Yes,1.039 SG,20.0 %,84.0
+Wheat Malt Ger,Germany,Grain,2,Yes,1.039 SG,60.0 %,84.0
+Wheat Flaked,US,Grain,2,Yes,1.035 SG,40.0 %,77.0
+Wheat Roasted,Germany,Grain,425,Yes,1.025 SG,10.0 %,54.3
+Wheat Torrified,US,Grain,2,Yes,1.036 SG,40.0 %,79.0
+White Wheat Malt,US,Grain,2,Yes,1.040 SG,60.0 %,86.0
