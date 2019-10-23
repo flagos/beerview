@@ -76,6 +76,7 @@
 
 .ingredients-table {
     margin-top: 15px;
+    min-height: 20px;
 }
 
 .ingredients-table .collapsible-body-content {
@@ -120,4 +121,11 @@
     padding: .2em .4em;
     margin: .8em 0 .2em;
     line-height: 1.5;
+}
+
+
+a.btn-floating.btn.red.add-ingredient {
+    float: right;
+    margin-top: -35px;
+    margin-right: 10px;
 }

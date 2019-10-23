@@ -87,7 +87,7 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
             .collapsible-header
               span.fermentable-icon
                 i(class="material-icons circle" style="background-color:" + fermentable.colorCss())
-              span(class="fermentable-name" contenteditable="true" style="margin-left: 5px")= fermentable.name
+              span(class="fermentable-name" contenteditable="true" style="margin-left: 5px; min-width:10px;")= fermentable.name
               span.fermentable-quantity
                 span.fermentable-quantity-value(contenteditable="true")= fermentable.weight
                 span.fermentable-quantity-unit  kg
@@ -95,6 +95,10 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
               .collapsible-body-content
                 div(class='fermentable-color col s6')= Brauhaus.srmToEbc(fermentable.color).toFixed(0) + ' EBC'
                 div(class='fermentable-yield col s6') yield #{fermentable.yield} %
+
+    a(class="btn-floating btn red add-ingredient", onclick="add_malt()")
+      i(class="material-icons") add
+
 
     h6 Hops
 
@@ -105,7 +109,7 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
           if hop.aa != 0
             li
               .collapsible-header
-                span(class="hop-name"  contenteditable="true")= hop.name
+                span(class="hop-name"  contenteditable="true"  style="min-width:10px;")= hop.name
                 span.hop-use #{hop.use}: #{hop.time} #{hop.use!="Dry Hop" ? 'm':'days'}
                 span.hop-quantity
                   span.hop-quantity-value(contenteditable="true") #{hop.weight*1000}
@@ -116,6 +120,10 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
                   div(class='hop-form col s6')= hop.form
           else
             - no_misc = false;
+    a(class="btn-floating btn red add-ingredient", onclick="add_hop()")
+      i(class="material-icons") add
+
+
 
     h6 Misc
 
@@ -127,9 +135,11 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
             if misc.aa == 0
               li
                 .collapsible-header
-                  span.misc-name= misc.name
+                  span.misc-name(style="min-width:10px;")= misc.name
                   span.misc-use= misc.use
                   span.misc-quantity #{misc.weight*1000} g
+    a(class="btn-floating btn red add-ingredient", onclick="add_misc()")
+      i(class="material-icons") add
 
 
     h6 Yeast
@@ -139,21 +149,11 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
         each yeast in recipe.yeast
           li
             .collapsible-header
-              span.yeast-name= yeast.name
+              span.yeast-name(style="min-width:10px;")= yeast.name
               span.yeast-attenuation #{yeast.attenuation} %
             .collapsible-body
               .collapsible-body-content
                 div(class='yeast-type col s6')= yeast.type
                 div(class='yeast-form col s6')= yeast.form
-
-
-.fixed-action-btn
-  a(class="btn-floating btn-large red")
-    i(class="large material-icons") mode_edit
-  ul
-    li
-      a(class="btn-floating blue")
-        i(class="material-icons" title="save") save
-    li
-      a(class="btn-floating green")
-        i(class="material-icons" title="clone") call_split
+    a(class="btn-floating btn red add-ingredient", onclick="add_yeast()")
+      i(class="material-icons") add

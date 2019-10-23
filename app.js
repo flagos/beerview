@@ -232,6 +232,12 @@ function init_autocompletion() {
             display: 0
         });
 
+	// $('span.yeast-name').catcomplete({
+    //         source : yeast_completion,
+    //         change: yeast_completion_onchange,
+    //         display: 0
+    //     });
+
     } );
 }
 
@@ -269,5 +275,45 @@ function hop_completion_onchange(event, ui) {
     current_recipe.spices[index].aa = parseFloat(ingredients_hop_per_name[current_recipe.spices[index].name]["Alpha (%)"]);
 
     current_recipe.calculate();
+    display_recipe(current_recipe);
+}
+
+function add_malt(event) {
+    current_recipe.add('fermentable', {
+        name: '',
+        color: 0,
+        weight: 0,
+        yield: 0
+    });
+    display_recipe(current_recipe);
+}
+
+function add_hop(event) {
+    current_recipe.add('hop', {
+        name: '',
+        weight: 0,
+        aa: 1,
+        use: 'boil',
+        form: 'pellet',
+    });
+    display_recipe(current_recipe);
+}
+
+function add_misc(event) {
+    current_recipe.add('hop', {
+        name: '',
+        weight: 0,
+        aa: 0,
+    });
+    display_recipe(current_recipe);
+}
+
+function add_yeast(event) {
+    current_recipe.add('yeast', {
+        name: '',
+        type: 'ale',
+        form: 'liquid',
+        attenuation: 0
+    });
     display_recipe(current_recipe);
 }
