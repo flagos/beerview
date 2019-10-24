@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('.sidenav').sidenav();
-
+    $('.modal').modal();
 });
 
 var recipes = [];
@@ -139,7 +139,7 @@ function display_recipe(recipe) {
 
 
     document.getElementById("recipe_view").innerHTML = compiledTemplateRecipeView({
-	recipe: recipe,
+	    recipe: recipe,
         style: style,
     });
 
@@ -160,24 +160,26 @@ function display_recipe(recipe) {
     init_autocompletion();
 
     $('span.fermentable-quantity-value').focusout((event) => {
-	var index =  $( "#fermentable-table li" ).index(event.target.parentElement.parentElement.parentElement);
-	var qty = parseFloat(event.target.parentElement.parentElement.children[2].children[0].textContent);
+	    var index =  $( "#fermentable-table li" ).index(event.target.parentElement.parentElement.parentElement);
+	    var qty = parseFloat(event.target.parentElement.parentElement.children[2].children[0].textContent);
 
-	current_recipe.fermentables[index].weight = qty;
+	    current_recipe.fermentables[index].weight = qty;
 
-	current_recipe.calculate();
-	display_recipe(current_recipe);
+	    current_recipe.calculate();
+	    display_recipe(current_recipe);
     });
 
     $('span.hop-quantity-value').focusout((event) => {
-	var index =  $( "#hop-table li" ).index(event.target.parentElement.parentElement.parentElement);
-	var qty = parseFloat(event.target.parentElement.parentElement.children[2].children[0].textContent);
+	    var index =  $( "#hop-table li" ).index(event.target.parentElement.parentElement.parentElement);
+	    var qty = parseFloat(event.target.parentElement.parentElement.children[2].children[0].textContent);
 
-	current_recipe.spices[index].weight = qty/1000;
+	    current_recipe.spices[index].weight = qty/1000;
 
-	current_recipe.calculate();
-	display_recipe(current_recipe);
+	    current_recipe.calculate();
+	    display_recipe(current_recipe);
     });
+
+    $('.modal').modal();
 
 }
 
@@ -315,5 +317,20 @@ function add_yeast(event) {
         form: 'liquid',
         attenuation: 0
     });
+    display_recipe(current_recipe);
+}
+
+
+function resize() {
+    var target_size = $("#target_size").text();
+    var scale_ingredients = $("#checkcox-scale-ingredient")[0].checked;
+    var target_boilsize = current_recipe.boilSize * target_size/ current_recipe.batchSize;
+    if (scale_ingredients == true) {
+        current_recipe.scale(target_size, target_boilsize);
+    } else {
+        current_recipe.boilSize = target_boilsize;
+        current_recipe.batchSize = target_size;
+    }
+    current_recipe.calculate();
     display_recipe(current_recipe);
 }

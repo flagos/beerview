@@ -7,9 +7,9 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
   div(class='col s4')
     span Style:
     div(id="style_name" contenteditable="true" style="margin-left: 5px; display: inline-block") #{recipe.style.name}
-  div(class='col s4')
+  div(class='col s4 modal-trigger' href="#modal-batchsize")
     span Batchsize:
-    span(contenteditable="true" style="margin-left: 5px") #{recipe.batchSize}
+    span(style="margin-left: 5px") #{recipe.batchSize}
     span(style="margin-left: 5px") L
 
 
@@ -157,3 +157,18 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
                 div(class='yeast-form col s6')= yeast.form
     a(class="btn-floating btn red add-ingredient", onclick="add_yeast()")
       i(class="material-icons") add
+
+
+div(id="modal-batchsize" class="modal bottom-sheet")
+    div(class="modal-content")
+        h4 Set Batchsize
+        p
+            span Change volume from #{recipe.batchSize} L to
+            span(contenteditable="true" id="target_size" style="min-width:20px; margin-left:5px") #{recipe.batchSize}
+            span(style="margin-left:5px")  L
+        p
+            label
+                input(type="checkbox", class="filled-in" id="checkcox-scale-ingredient")
+                span(for="checkcox-scale-ingredient") Scale ingredient to new volume
+    div(class="modal-footer")
+        a(class="modal-close waves-effect waves-green btn-flat" onclick="resize()") Resize
