@@ -26,8 +26,10 @@
     "brauhaus-beerxml": "^1.0.0",
     "brauhaus-styles": "^1.0.0",
     "csv-parser": "^2.3.0",
-    "jquery": "^3.4.0",
+    "electron": "^4.2.12",
+    "jquery": "^3.4.1",
     "jquery-jeditable": "^2.0.10",
-    "pug": "^2.0.3"
+    "jquery-ui": "^1.12.1",
+    "pug": "^2.0.4"
   }
 }
