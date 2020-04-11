@@ -19,6 +19,9 @@ const fermentable_completion = [];
 const ingredients_hop = [];
 const ingredients_hop_per_name = {};
 const hop_completion = [];
+const ingredients_yeast = [];
+const ingredients_yeast_per_name = {};
+const yeast_completion = [];
 
 
 fs.createReadStream('ingredients/malt.csv')
@@ -48,6 +51,21 @@ fs.createReadStream('ingredients/hop.csv')
 
       // console.log(ingredients_hop);
   });
+
+fs.createReadStream('ingredients/yeast.csv')
+  .pipe(csv())
+  .on('data', (data) => ingredients_yeast.push(data))
+  .on('end', () => {
+      ingredients_yeast.forEach(function(item){
+	  var name = item.name + ' ' + item.productId;
+	  yeast_completion.push({label: name, category: item.yeastType});
+	  ingredients_yeast_per_name[name] = item;
+	});
+
+      yeast_completion.sort((a, b) => (a.yeastType > b.yeastType) ? 1 : -1);
+  });
+
+
 
 require('electron').ipcRenderer.on('recipes-list', (event, message) => {
 
@@ -236,11 +254,11 @@ function init_autocompletion() {
             display: 0
         });
 
-	// $('span.yeast-name').catcomplete({
-    //         source : yeast_completion,
-    //         change: yeast_completion_onchange,
-    //         display: 0
-    //     });
+	$('span.yeast-name').catcomplete({
+            source : yeast_completion,
+            change: yeast_completion_onchange,
+            display: 0
+        });
 
     } );
 }
@@ -277,6 +295,20 @@ function hop_completion_onchange(event, ui) {
     current_recipe.spices[index].weight = qty/1000;
 
     current_recipe.spices[index].aa = parseFloat(ingredients_hop_per_name[current_recipe.spices[index].name]["Alpha (%)"]);
+
+    current_recipe.calculate();
+    display_recipe(current_recipe);
+}
+
+function yeast_completion_onchange(event, ui) {
+    var index =  $( "#yeast-table li" ).index(event.target.parentElement.parentElement);
+
+    var label =  event.target.textContent;
+    var yeast = ingredients_yeast_per_name[label];
+    current_recipe.yeast[index].name = label;
+    current_recipe.yeast[index].attenuation = yeast.attenuationMax;
+    current_recipe.yeast[index].form = yeast.yeastFormat;
+    current_recipe.yeast[index].type = yeast.yeastType;
 
     current_recipe.calculate();
     display_recipe(current_recipe);

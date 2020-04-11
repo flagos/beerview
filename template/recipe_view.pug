@@ -87,7 +87,7 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
             .collapsible-header
               span.fermentable-icon
                 i(class="material-icons circle" style="background-color:" + fermentable.colorCss())
-              span(class="fermentable-name" contenteditable="true" style="margin-left: 5px; min-width:10px;")= fermentable.name
+              span(class="fermentable-name" contenteditable="true" style="margin-left: 5px; min-width:10px;" placeholder="Enter fermentable here")= fermentable.name
               span.fermentable-quantity
                 span.fermentable-quantity-value(contenteditable="true")= fermentable.weight
                 span.fermentable-quantity-unit  kg
@@ -109,7 +109,7 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
           if hop.aa != 0
             li
               .collapsible-header
-                span(class="hop-name"  contenteditable="true"  style="min-width:10px;")= hop.name
+                span(class="hop-name" contenteditable="true"  style="min-width:10px;" placeholder="Enter hop here")= hop.name
                 span.hop-use #{hop.use}: #{hop.time} #{hop.use!="Dry Hop" ? 'm':'days'}
                 span.hop-quantity
                   span.hop-quantity-value(contenteditable="true") #{hop.weight*1000}
@@ -128,7 +128,7 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
     h6 Misc
 
 
-    .ingredients-table#yeast-table
+    .ingredients-table
       if no_misc == false
         ul.collapsible
           each misc in recipe.spices
@@ -144,12 +144,12 @@ h3(contenteditable="true", id="recipe-name") #{recipe.name}
 
     h6 Yeast
 
-    .ingredients-table
+    .ingredients-table#yeast-table
       ul.collapsible
         each yeast in recipe.yeast
           li
             .collapsible-header
-              span.yeast-name(style="min-width:10px;")= yeast.name
+              span.yeast-name(style="min-width:10px;" contenteditable="true" placeholder="Enter yeast here")= yeast.name
               span.yeast-attenuation #{yeast.attenuation} %
             .collapsible-body
               .collapsible-body-content

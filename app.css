@@ -129,3 +129,26 @@ a.btn-floating.btn.red.add-ingredient {
     margin-top: -35px;
     margin-right: 10px;
 }
+
+
+/* fake placeholder */
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  pointer-events: none;
+  display: block; /* For Firefox */
+  color: grey;
+}
+
+/* */
+
+div[contenteditable=true] {
+  border: 1px dashed #AAA;
+  width: 290px;
+  padding: 5px;
+}
+
+pre {
+  background:#EEE;
+  padding:5px;
+  width: 290px;
+}
