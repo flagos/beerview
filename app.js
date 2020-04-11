@@ -54,9 +54,11 @@ require('electron').ipcRenderer.on('recipes-list', (event, message) => {
     recipes = [];
 
     message.forEach(function(item){
-	r = Brauhaus.Recipe.fromBeerXml(item["content"]);
-	r[0].calculate();
-	recipes.push(r);
+	var recipes_in_xml = Brauhaus.Recipe.fromBeerXml(item["content"]);
+	recipes_in_xml.forEach(function(r, index) {
+	    r.calculate();
+	    recipes.push({recipe: r, index: index, message: item});
+	});
     });
 
     // construct list
@@ -65,10 +67,10 @@ require('electron').ipcRenderer.on('recipes-list', (event, message) => {
 	$("#collection-search-results").append(
 	    `
 <li class="collection-item avatar" onClick='display_recipe_idx(${idx})'>
-    <i class="material-icons circle" style="background-color:${Brauhaus.srmToCss(recipe[0].color)}"></i>
-    <span class="title">${recipe[0].name}</span>
-    <p>${recipe[0].style.category} ${recipe[0].style.category!='' ? '-' : ''}  ${recipe[0].style.name}<br>
-     ${recipe[0].abv.toFixed(1)}% - ${recipe[0].ibu.toFixed(0)} IBU
+    <i class="material-icons circle" style="background-color:${Brauhaus.srmToCss(recipe["recipe"].color)}"></i>
+    <span class="title">${recipe['recipe'].name}</span>
+    <p>${recipe["recipe"].style.category} ${recipe["recipe"].style.category!='' ? '-' : ''}  ${recipe["recipe"].style.name}<br>
+     ${recipe["recipe"].abv.toFixed(1)}% - ${recipe["recipe"].ibu.toFixed(0)} IBU
     </p>
 </li>
 `);
@@ -78,7 +80,7 @@ require('electron').ipcRenderer.on('recipes-list', (event, message) => {
     // construct search text
     recipes.forEach(function(recipe){
 	var txtValues;
-	recipe = recipe[0];
+	recipe = recipe["recipe"];
 	txtValues = [recipe.name, recipe.style.name];
 	recipe.fermentables.forEach(function(f){
 	    txtValues.push(f.name);
@@ -124,7 +126,7 @@ function search_recipes() {
 
 
 function display_recipe_idx(recipe_idx) {
-    current_recipe = recipes[recipe_idx][0];
+    current_recipe = recipes[recipe_idx]["recipe"];
     display_recipe(current_recipe);
 }
 
